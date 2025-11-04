@@ -12,8 +12,8 @@ public abstract class MotorBike extends Vehicle{
         this.brakeType="";
     }
     
-    public MotorBike(String band, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType){
-        super(band, model, year, price, color, weight, used);
+    public MotorBike(String brand, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String          brakeType){
+        super(brand, model, year, price, color, weight, used);
         this.setCylinderCapacity(cylinderCapacity);
         this.setEngineType(engineType);
         this.setBrakeType(brakeType);

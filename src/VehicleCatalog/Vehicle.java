@@ -36,10 +36,10 @@ public abstract class Vehicle {
     public final void setModel(String model){
         this.model=model;
     }
-    public final void setYear(int Year){
+    public final void setYear(int year){
         this.year=year;
     }
-    public final void setPrice(double Price){
+    public final void setPrice(double price){
         this.price=price;
     }
     public final void setColor(String color){
@@ -71,7 +71,8 @@ public abstract class Vehicle {
     }
     public boolean getUsed(){
         return this.used;
-    }   
+    } 
+    @Override
     public String toString(){
         String str="Brand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
         if(this.used){

@@ -64,12 +64,14 @@ public final class ValidationClass {
     
     public static void ValidateEngineType(String engineType){
         if(engineType.isBlank()||engineType.isEmpty()||engineType.matches("[a-z A-Z 0-9]+")){
+        }else{
             throw new IllegalArgumentException("The engine type has invalid characters.");
         }
     }
     
     public static void ValidateBrakeType(String brakeType){
         if(brakeType.isBlank()||brakeType.isEmpty()||brakeType.matches("[a-z A-Z 0-9]+")){
+        }else{
             throw new IllegalArgumentException("The type of brakes has invalid characters.");
         }
     }

@@ -10,7 +10,7 @@ public class Touring extends MotorBike{
         this.tankCapacity=0.0;
     }
     
-    public Touring(String brand, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, double atonomyKm, double tankCapacity){
+    public Touring(String brand, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, double autonomyKm, double tankCapacity){
         super(brand, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType);
         this.setAutonomyKm(autonomyKm);
         this.setTankCapacity(tankCapacity);
