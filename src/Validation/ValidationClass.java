@@ -89,4 +89,18 @@ public final class ValidationClass {
             throw new IllegalArgumentException("The tank capacity be greater than zero. ");
         }
     }
+    
+    //      VALIDACION CLASE_SPORT
+    
+    public static void ValidationChassisMaterial(String chassisMaterial){
+        if(chassisMaterial.isBlank()||chassisMaterial.isEmpty()||chassisMaterial.matches("[a-z A-Z]+")){
+            throw new IllegalArgumentException("The chassis material has invalid characters. ");
+        }
+    }
+    
+    public static void ValidationAceleration0to100(double aceleration0to100){
+        if(aceleration0to100<0.0){
+            throw new IllegalArgumentException("The aceleartion must be greater than zero. ");
+        }
+    }
 }
