@@ -54,5 +54,23 @@ public final class ValidationClass {
         }
     }
     
+//          VALIDACION CLASE_MOTORBIKE
     
+    public static void ValidateCylinderCapacity(double cylinderCapacity){
+        if(cylinderCapacity<0.0){
+            throw new IllegalArgumentException("The cylinder must be greater than zero.");
+        }
+    }
+    
+    public static void ValidateEngineType(String engineType){
+        if(engineType.isBlank()||engineType.isEmpty()||engineType.matches("[a-z A-Z 0-9]+")){
+            throw new IllegalArgumentException("The engine type has invalid characters.");
+        }
+    }
+    
+    public static void ValidateBrakeType(String brakeType){
+        if(brakeType.isBlank()||brakeType.isEmpty()||brakeType.matches("[a-z A-Z 0-9]+")){
+            throw new IllegalArgumentException("The type of brakes has invalid characters.");
+        }
+    }
 }
