@@ -73,4 +73,18 @@ public final class ValidationClass {
             throw new IllegalArgumentException("The type of brakes has invalid characters.");
         }
     }
+    
+    //      VALIDACION CLASE_TOURING
+    
+    public static void ValidationAutonomyKm(double autonomyKm){
+        if(autonomyKm<0.0){
+            throw new IllegalArgumentException("The autonomy Km must be greater than zero. ");
+        }
+    }
+    
+    public static void ValidationTankCapacity(double tankCapacity){
+        if(tankCapacity<0.0){
+            throw new IllegalArgumentException("The tank capacity be greater than zero. ");
+        }
+    }
 }
