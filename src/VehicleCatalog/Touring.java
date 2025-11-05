@@ -40,6 +40,7 @@ public class Touring extends MotorBike{
         return str;
     }
     
+    //METODO UNICO 
     public void routeInformation(){
         System.out.println("\nDiscover miles of landscapes, curves, and destinations-always knowing where your adventure will take you."
                 + "\nPlan your journey, know the key stops, and get ready to ride without setbacks."
@@ -47,12 +48,14 @@ public class Touring extends MotorBike{
                 + "\nStart your engine, hit the throttle, and let the road tell its story!");
     }
     
+    //METODO ABSTRACTO
     @Override
     public String assessment(){
         String str="\nMotorcycle rating 8/10 ☆";
         return str;
     }
 
+    //METODO UNICO 
     @Override
     public void showPrice() {
         if(this.getUsed()==true){
@@ -62,6 +65,7 @@ public class Touring extends MotorBike{
         }
     }
 
+    //METODO UNICO 
     @Override
     public void showState() {
         if(this.getUsed()==true){
