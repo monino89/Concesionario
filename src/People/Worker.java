@@ -19,30 +19,30 @@ public class Worker extends Person {
         this.setYearsOfExperience(yearsOfExperience);
     }
     
-    public final void setId(String id){
+    protected final void setId(String id){
         ValidationClass.ValidateId(id);
         this.id = id;
     }
     
-    public final void setEmail(String email){
+    protected final void setEmail(String email){
         ValidationClass.ValidateEmail(email);
         this.email = email;
     }
     
-    public final void setYearsOfExperience(int yearsOfExperience){
+    protected final void setYearsOfExperience(int yearsOfExperience){
         ValidationClass.ValidateYearsExperience(yearsOfExperience);
         this.yearsOfExperience = yearsOfExperience;
     }
     
-    public String getId(){
+    protected String getId(){
         return this.id;
     }
     
-    public String getEmail(String email){
+    protected String getEmail(String email){
         return this.email;
     }
     
-    public int getYearsOfExperience(){
+    protected int getYearsOfExperience(){
         return this.yearsOfExperience;
     }
     

@@ -18,29 +18,29 @@ class PaymentMethod {
         this.setInterest(interest);
     }
     
-    public final void setCash(boolean cash){
+    protected final void setCash(boolean cash){
         this.cash = cash;
     }
 
-    public final void setCashDiscount(double cashDiscount){
+    protected final void setCashDiscount(double cashDiscount){
         ValidationClass.ValidateCashDiscont(cashDiscount);
         this.cashDiscount = cashDiscount;
     }
     
-    public final void setInterest(double interest){
+    protected final void setInterest(double interest){
         ValidationClass.ValidateInterest(interest);
         this.interest = interest;
     }
     
-    public boolean getCash(){
+    protected boolean getCash(){
         return this.cash;
     }
     
-    public double getCashDiscount(){
+    protected double getCashDiscount(){
         return this.cashDiscount;
     }
     
-    public double getInterest(){
+    protected double getInterest(){
        return this.interest;     
     }
     

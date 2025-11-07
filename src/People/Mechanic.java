@@ -21,12 +21,12 @@ public class Mechanic extends Worker {
         this.vehicleCheck = new ArrayList<>();
     }
     
-    public final void setSpecialty(String specialty){
+    protected final void setSpecialty(String specialty){
         ValidationClass.ValidateSpecialTy(specialty);
         this.specialty = specialty;
     }
     
-    public String getSpecialty(){
+    protected String getSpecialty(){
         return this.specialty;
     }
     
