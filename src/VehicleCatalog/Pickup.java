@@ -13,8 +13,8 @@ public class Pickup extends Car {
         this.traction="";
     }
     
-    public Pickup(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double loadCapacity, double plateSize, String traction){
-        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power);
+    public Pickup(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double loadCapacity, double plateSize, String traction,int vehicleId){
+        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power,vehicleId);
         this.setLoadCapacity(loadCapacity);
         this.setPlateSize(plateSize);
         this.setTraction(traction);

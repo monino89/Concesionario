@@ -10,8 +10,8 @@ public class HyperCar extends CarSport{
         this.hybridPropulsion="";
         this.downForce=0;
     }
-    public HyperCar(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double acceleration0to100, String material, String hybridPropulsion, int downForce){
-        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power, acceleration0to100, material);
+    public HyperCar(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double acceleration0to100, String material, String hybridPropulsion, int downForce,int vehicleId){
+        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power, acceleration0to100, material,vehicleId);
         this.setHybridPropulsion(hybridPropulsion);
         this.setDownForce(downForce);
     }

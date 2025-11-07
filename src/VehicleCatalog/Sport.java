@@ -10,8 +10,8 @@ public class Sport extends MotorBike{
       this.acceleration0to100=0.0;
     }
     
-    public Sport(String band, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, String chassisMaterial, double aceleration0to100){
-        super(band, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType);
+    public Sport(String band, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, String chassisMaterial, double acceleration0to100,int vehicleId){
+        super(band, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType,vehicleId);
         this.setChassisMaterial(chassisMaterial);
         this.setAcceleration0to100(acceleration0to100);
     }
@@ -38,7 +38,7 @@ public class Sport extends MotorBike{
     
     @Override
     public String toString(){
-        String str=super.toString()+"\nChassis Material: "+this.chassisMaterial+"\nTime from to 100: "+this.acceleration0to100;
+        String str=super.toString()+"\nChassis Material: "+this.chassisMaterial+"\nTime from 0 to 100: "+this.acceleration0to100;
         return str;
     }
     

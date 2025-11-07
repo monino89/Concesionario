@@ -11,8 +11,8 @@ public class DualSport extends MotorBike{
         this.tireType="";
     }
     
-    public DualSport(String band, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, double seatHeight, String tireType){
-        super(band, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType);
+    public DualSport(String band, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, double seatHeight, String tireType,int vehicleId){
+        super(band, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType,vehicleId);
         this.setSeatHeight(seatHeight);
         this.setTireType(tireType);
     }

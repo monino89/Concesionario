@@ -15,8 +15,8 @@ public abstract class Car extends Vehicle {
         this.power=0.0;
     }
     
-    public Car(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power){
-        super(brand, model, year, price, color, weight, used);
+    public Car(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power,int vehicleId){
+        super(brand, model, year, price, color, weight, used,vehicleId);
         this.setNumDoor(numDoor);
         this.setPassengerCapacity(passengerCapacity);
         this.setFuelType(fuelType);

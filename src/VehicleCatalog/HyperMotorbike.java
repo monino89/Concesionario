@@ -11,8 +11,8 @@ public class HyperMotorbike extends Sport{
         this.downForce=0;
     }
     
-    public HyperMotorbike(String brand, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, String chassisMaterial, double aceleration0to100, double maxSpeed, int downForce){
-        super(brand, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType, chassisMaterial, aceleration0to100);
+    public HyperMotorbike(String brand, String model, int year, double price, String color, double weight, boolean used, double cylinderCapacity, String engineType, String brakeType, String chassisMaterial, double aceleration0to100, double maxSpeed, int downForce,int vehicleId){
+        super(brand, model, year, price, color, weight, used, cylinderCapacity, engineType, brakeType, chassisMaterial, aceleration0to100,vehicleId);
         this.setMaxSpeed(maxSpeed);
         this.setDownForce(downForce);
     }

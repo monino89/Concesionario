@@ -93,14 +93,14 @@ public final class ValidationClass {
     //      VALIDACION CLASE_SPORT
     
     public static void ValidationChassisMaterial(String chassisMaterial){
-        if(chassisMaterial.isBlank()||chassisMaterial.isEmpty()||chassisMaterial.matches("[a-z A-Z]+")){
+        if(chassisMaterial.isBlank()||chassisMaterial.isEmpty()||chassisMaterial.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The chassis material has invalid characters. ");
         }
     }
     
     public static void ValidationAcceleration0to100(double acceleration0to100){
         if(acceleration0to100<0.0){
-            throw new IllegalArgumentException("The aceleartion must be greater than zero. ");
+            throw new IllegalArgumentException("The aceleration must be greater than zero. ");
         }
     }
     
@@ -113,7 +113,7 @@ public final class ValidationClass {
     }
     
     public static void ValidationTireType(String tireType){
-        if(tireType.isBlank()||tireType.isEmpty()||tireType.matches("[a-z A-Z]+")){
+        if(tireType.isBlank()||tireType.isEmpty()||tireType.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The tire type has invalid characters. ");
         }
     }
@@ -147,7 +147,7 @@ public final class ValidationClass {
     }
     
     public static void ValidateFuelType(String fuelType){
-        if(fuelType.isBlank()||fuelType.isEmpty()||fuelType.matches("[a-z A-Z]+")){
+        if(fuelType.isBlank()||fuelType.isEmpty()||fuelType.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The fuel type has invalid characters. ");
         }
     }
@@ -161,7 +161,7 @@ public final class ValidationClass {
     //      VALIDACION CLASE_SEDAN
     
     public static void ValidateTypeSedan(String typeSedan){
-        if(typeSedan.isBlank()||typeSedan.isEmpty()||typeSedan.matches("[a-z A-Z]+")){
+        if(typeSedan.isBlank()||typeSedan.isEmpty()||typeSedan.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The type sedan has invalid characters. ");
         }
     }
@@ -176,7 +176,7 @@ public final class ValidationClass {
     // Se reutilizo la validacion de acceleration0to100 y se encuentra en la seccion SPORT
     
     public static void ValidateMaterial(String material){
-        if(material.isBlank()||material.isEmpty()||material.matches("[a-z A-Z]+")){
+        if(material.isBlank()||material.isEmpty()||material.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The material has invalid characters. ");
         }
     }
@@ -196,16 +196,16 @@ public final class ValidationClass {
     }
     
     public static void ValidateTraction(String traction){
-        if(traction.isBlank()||traction.isEmpty()||traction.matches("[a-z A-Z 0-9]+")){
+        if(traction.isBlank()||traction.isEmpty()||traction.matches("[a-z A-Z 0-9]+")==false){
             throw new IllegalArgumentException("The traction has invalid characters. ");
         }
     }
     
-    //      VALIDACION CLASA_HYPERCAR
-    //se reutilizo la validacion de downForce y se encuentar em la seccion HyperMotorbike
+    //      VALIDACION CLASE_HYPERCAR
+    //se reutilizo la validacion de downForce y se encuentra en la seccion HyperMotorbike
     
     public static void ValidateHybridPropulsion(String hybridPropulsion){
-        if(hybridPropulsion.isBlank()||hybridPropulsion.isEmpty()||hybridPropulsion.matches("[a-z A-Z]+")){
+        if(hybridPropulsion.isBlank()||hybridPropulsion.isEmpty()||hybridPropulsion.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The hybrid propulsion has invalid cahracters. ");
         }
     }

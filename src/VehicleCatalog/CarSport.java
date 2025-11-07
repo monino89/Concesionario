@@ -11,8 +11,8 @@ public class CarSport extends Car {
         this.material="";
     }
     
-    public CarSport(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double acceleration0to100, String material){
-        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power);
+    public CarSport(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, double acceleration0to100, String material,int vehicleId){
+        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power,vehicleId);
         this.setAcceleration0to100(acceleration0to100);
         this.setMaterial(material);
     }
