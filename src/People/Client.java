@@ -23,7 +23,6 @@ public class Client extends Person {
     }
     
     public final void setNewClient(boolean newClient){
-        ValidationClass.ValidateNewClient(newClient);
         this.newClient = newClient;
     }
     

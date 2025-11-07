@@ -232,20 +232,7 @@ public final class ValidationClass {
             throw new IllegalArgumentException("The years of experience must be grater than zero. ");
         }
     }
-    
-    
-    
-    //      VALIDACION CLASE_CLIENT
-    
-    public static void ValidateNewClient(boolean newClient){
-        if(newClient==true){
-            
-        }if(newClient==false){
-            
-        }else{
-            throw new IllegalArgumentException("The new client has invalid characters. ");
-        }
-    }
+
     
     
     //      VALIDACION CLASE_VEHICLE
@@ -287,13 +274,7 @@ public final class ValidationClass {
         }
     }
     
-    public static void ValidateUsed(boolean used){
-        if(used==true){
-        }if(used==false){
-        }else{
-            throw new IllegalArgumentException("The used has invalid characters. ");
-        }
-    } 
+
     
     //      VALIDACION CLASE_SELLER
     
@@ -313,15 +294,6 @@ public final class ValidationClass {
     
     //      VALIDACION CLASE_PAYMENTMETHOD
     
-    public static void ValidateCash(boolean cash){
-        if(cash==true){
-            
-        }if(cash==false){
-            
-        }else{
-            throw new IllegalArgumentException("The cash has invalid characters. ");
-        }
-    }
     
     public static void ValidateCashDiscont(double cashDiscont){
         if(cashDiscont<0.0){

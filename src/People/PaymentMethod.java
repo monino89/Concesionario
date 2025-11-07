@@ -19,7 +19,6 @@ class PaymentMethod {
     }
     
     public final void setCash(boolean cash){
-        ValidationClass.ValidateCash(cash);
         this.cash = cash;
     }
     

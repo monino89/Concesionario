@@ -56,7 +56,6 @@ public abstract class Vehicle {
         this.weight=weight;
     }
     public final void setUsed(boolean used){
-        ValidationClass.ValidateUsed(used);
         this.used=used;
     }
     public String getBrand(){
