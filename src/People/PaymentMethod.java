@@ -1,6 +1,6 @@
 
 package People;
-
+import Validation.ValidationClass;
 
 class PaymentMethod {
     
@@ -19,14 +19,17 @@ class PaymentMethod {
     }
     
     public final void setCash(boolean cash){
+        ValidationClass.ValidateCash(cash);
         this.cash = cash;
     }
     
     public final void setCashDiscount(double cashDiscount){
+        ValidationClass.ValidateCashDiscont(cashDiscount);
         this.cashDiscount = cashDiscount;
     }
     
     public final void setInterest(double interest){
+        ValidationClass.ValidateInterest(interest);
         this.interest = interest;
     }
     

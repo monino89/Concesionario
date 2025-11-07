@@ -1,6 +1,6 @@
 
 package People;
-
+import Validation.ValidationClass;
 
 public class Worker extends Person {
     
@@ -20,14 +20,17 @@ public class Worker extends Person {
     }
     
     public final void setId(String id){
+        ValidationClass.ValidateId(id);
         this.id = id;
     }
     
     public final void setEmail(String email){
+        ValidationClass.ValidateEmail(email);
         this.email = email;
     }
     
     public final void setYearsOfExperience(int yearsOfExperience){
+        ValidationClass.ValidateYearsExperience(yearsOfExperience);
         this.yearsOfExperience = yearsOfExperience;
     }
     
@@ -50,8 +53,4 @@ public class Worker extends Person {
         return str;
     }
     
-    public String availableWorkers(){
-        String str = "";
-        return str;
-    }
 }

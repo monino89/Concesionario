@@ -1,6 +1,7 @@
 
 package People;
 
+import Validation.ValidationClass;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class Mechanic extends Worker {
     }
     
     public final void setSpecialty(String specialty){
+        ValidationClass.ValidateSpecialTy(specialty);
         this.specialty = specialty;
     }
     

@@ -1,6 +1,6 @@
 
 package People;
-
+import Validation.ValidationClass;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ public class Seller extends Worker {
     }
     
     public final void setSalesMade(int salesMade){
+        ValidationClass.ValidateSalesMade(salesMade);
         this.salesMade = salesMade;
     }
     
