@@ -1,5 +1,7 @@
 
 package VehicleCatalog;
+import Validation.ValidationClass;
+
 public abstract class Vehicle {
     private String brand;
     private String model;
@@ -28,31 +30,36 @@ public abstract class Vehicle {
         this.setUsed(used);
     }
     
-    //
     
     public final void setBrand(String brand){
+        ValidationClass.ValidateBrand(brand);
         this.brand=brand;
     }
     public final void setModel(String model){
+        ValidationClass.ValidateModel(model);
         this.model=model;
     }
     public final void setYear(int year){
+        ValidationClass.ValidateYear(year);
         this.year=year;
     }
     public final void setPrice(double price){
+        ValidationClass.ValidatePrice(price);
         this.price=price;
     }
     public final void setColor(String color){
+        ValidationClass.ValidateColor(color);
         this.color=color;
     }
     public final void setWeight(double weight){
+        ValidationClass.ValidateWeight(weight);
         this.weight=weight;
     }
     public final void setUsed(boolean used){
         this.used=used;
     }
     public String getBrand(){
-        return this.getBrand();
+        return this.brand;
     }
     public String getModel(){
         return this.model;

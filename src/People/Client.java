@@ -1,6 +1,7 @@
 
 package People;
 
+import Validation.ValidationClass;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
 
@@ -21,11 +22,11 @@ public class Client extends Person {
         this.paymentMethod = new PaymentMethod();
     }
     
-    public final void setNewClient(boolean newClient){
+    protected final void setNewClient(boolean newClient){
         this.newClient = newClient;
     }
     
-    public boolean getNewClient(){
+    protected boolean getNewClient(){
         return this.newClient;
     }
     
