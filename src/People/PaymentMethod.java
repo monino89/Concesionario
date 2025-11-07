@@ -1,7 +1,7 @@
 
 package People;
 import Validation.ValidationClass;
-
+import VehicleCatalog.Vehicle;
 class PaymentMethod {
     
     private boolean cash;
@@ -21,7 +21,7 @@ class PaymentMethod {
     public final void setCash(boolean cash){
         this.cash = cash;
     }
-    
+
     public final void setCashDiscount(double cashDiscount){
         ValidationClass.ValidateCashDiscont(cashDiscount);
         this.cashDiscount = cashDiscount;
@@ -44,5 +44,7 @@ class PaymentMethod {
        return this.interest;     
     }
     
-    
+    public void calculatePrice(){
+        
+    }
 }
