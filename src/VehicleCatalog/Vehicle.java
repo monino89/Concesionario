@@ -52,7 +52,7 @@ public abstract class Vehicle {
         this.used=used;
     }
     public String getBrand(){
-        return this.getBrand();
+        return this.brand;
     }
     public String getModel(){
         return this.model;

@@ -42,13 +42,19 @@ public class Client extends Person {
             str += "Shopping list: \n";
             for(Vehicle a: this.shoppingList){
                 str += a.toString() + "\n";
+                if (paymentMethod.getCash() == true){
+                   str += "\nVehicle price after discount: " + a.getPrice()*paymentMethod.getCashDiscount(); 
+                } else {
+                    str += "\nVehicle interest per month: " + a.getPrice()*paymentMethod.getInterest();
+                }
             }
-            
         } else {
             str += "The customer has not added vehicles to their shopping list.\n";
         }
         return str;
+       
     }
+    
     
     public void thankYouMessage(){
         if (newClient == true){

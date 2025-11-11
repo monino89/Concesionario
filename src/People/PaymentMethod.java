@@ -9,7 +9,8 @@ class PaymentMethod {
     private double interest;
     
     public PaymentMethod(){
-        
+        cashDiscount = 0.0;
+        interest = 0.0;
     }
     
     public PaymentMethod(boolean cash, double cashDiscount, double interest){
