@@ -1,6 +1,7 @@
 
 package concesionario;
 
+import Utility.Menu;
 import Utility.UtilityFileReader;
 import VehicleCatalog.Touring;
 import VehicleCatalog.MotorBike;
@@ -18,9 +19,8 @@ public class Concesionario {
         UtilityFileReader.readPickup("./pickup.txt", vehicles);
         UtilityFileReader.readHyperMotorbike("./hypermotorbike.txt", vehicles);
         UtilityFileReader.readHyperCar("./hypercar.txt", vehicles);
-        for(Vehicle v:vehicles){
-            System.out.println(v.toString());
-        }
-        UtilityFileReader.createReport("./report.txt", vehicles);
+        //
+        Menu.printMenu();
+        UtilityFileReader.readClient("./client.txt", vehicles);
     }
 }

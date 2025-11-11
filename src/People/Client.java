@@ -11,15 +11,18 @@ public class Client extends Person {
     private boolean newClient;
     private ArrayList <Vehicle> shoppingList;
     private PaymentMethod paymentMethod;
+    private int clientId;
     
     public Client(){
         
     }
     
-    public Client(String name, String lastName1, String lastName2, int age, String dni, String phone, boolean newClient){
+    public Client(String name, String lastName1, String lastName2, int age, String dni, String phone, boolean newClient,int clientId){
         super(name, lastName1, lastName2, age, dni, phone);
         this.shoppingList = new ArrayList<>();
         this.paymentMethod = new PaymentMethod();
+        this.setNewClient(newClient);
+        this.clientId=clientId;
     }
     
     protected final void setNewClient(boolean newClient){

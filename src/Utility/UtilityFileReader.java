@@ -1,5 +1,6 @@
 //esto esta muy mal hecho para poder copiar y pegar, seria mejor no tocarlo
 package Utility;
+import People.Client;
 import VehicleCatalog.CarSport;
 import VehicleCatalog.DualSport;
 import VehicleCatalog.HyperCar;
@@ -297,6 +298,36 @@ public class UtilityFileReader {
                 int downForce=Integer.parseInt(parts[14].trim());
                 int vehicleId=Integer.parseInt(parts[15].trim());
                         vehicles.add(new HyperCar(brand,model,year,price,color,weight,used,numDoor,passengerCapacity,fuelType,power,typeSedan,trunkCapacity,hybridPropulsion,downForce,vehicleId));
+                    }else{
+                     System.out.println("Insuficiente data to create object");
+                    }
+                }catch(Exception e){
+                    System.out.println("Error creating the object: "+e.getMessage());
+                }
+            }
+            reader.close();
+        }catch(IOException e){
+            System.err.println("Error reading file: "+e.getMessage());
+        }
+    }
+    //client
+    public static void readClient(String filePath,ArrayList vehicles){
+        String line="";
+        try(BufferedReader reader=new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts=line.split(",");
+                try{
+                    if(parts.length>=8){
+                        String name=parts[0].trim();
+                        String lastName1=parts[1].trim();
+                        String lastName2=parts[2].trim();
+                        int age=Integer.parseInt(parts[3].trim());
+                        String dni=parts[4].trim();
+                        String phone=parts[5].trim();
+                        boolean newClient=Boolean.parseBoolean(parts[6].trim());
+                        int clientId=Integer.parseInt(parts[7].trim());
+                        vehicles.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient,clientId));
                     }else{
                      System.out.println("Insuficiente data to create object");
                     }
