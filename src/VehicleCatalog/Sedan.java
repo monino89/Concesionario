@@ -11,8 +11,8 @@ public class Sedan extends Car{
         this.trunkCapacity=0.0;
     }
     
-    public Sedan(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, String typeSedan, double trunkCapacity){
-        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power);
+    public Sedan(String brand, String model, int year, double price, String color, double weight, boolean used, int numDoor, int passengerCapacity, String fuelType, double power, String typeSedan, double trunkCapacity,int vehicleId){
+        super(brand, model, year, price, color, weight, used, numDoor, passengerCapacity, fuelType, power,vehicleId);
         this.setTypeSedan(typeSedan);
         this.setTrunkCapacity(trunkCapacity);
     }

@@ -10,6 +10,7 @@ public abstract class Vehicle {
     private String color;
     private double weight;
     private boolean used;
+    private int vehicleId;
     
     public Vehicle(){
         this.brand="";
@@ -19,8 +20,9 @@ public abstract class Vehicle {
         this.color="";
         this.weight=0;
         this.used=false;
+        this.vehicleId=0;
     }
-    public Vehicle(String brand,String model,int year,double price,String color,double weight,boolean used){
+    public Vehicle(String brand,String model,int year,double price,String color,double weight,boolean used,int vehicleId){
         this.setBrand(brand);
         this.setModel(model);
         this.setYear(year);
@@ -28,6 +30,7 @@ public abstract class Vehicle {
         this.setColor(color);
         this.setWeight(weight);
         this.setUsed(used);
+        this.vehicleId=vehicleId;
     }
     
     
@@ -81,7 +84,7 @@ public abstract class Vehicle {
     } 
     @Override
     public String toString(){
-        String str="Brand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
+        String str="\nId: "+this.vehicleId+"\nBrand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
         if(this.used){
             str+="\nThe vehicle is used";
         }else{
