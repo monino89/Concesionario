@@ -238,13 +238,13 @@ public final class ValidationClass {
     //      VALIDACION CLASE_VEHICLE
     
     public static void ValidateBrand(String brand){
-        if(brand.isBlank()||brand.isEmpty()||brand.matches("[a-z A-Z]+")){
+        if(brand.isBlank()||brand.isEmpty()||brand.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The brand has invalid characters. ");
         }
     }
     
     public static void ValidateModel(String model){
-        if(model.isBlank()||model.isEmpty()||model.matches("[a-z A-Z 0-9]+")){
+        if(model.isBlank()||model.isEmpty()||model.matches("[a-z A-Z 0-9]+")==false){
             throw new IllegalArgumentException("The model has invalid characters. ");
         }
     }
@@ -263,7 +263,7 @@ public final class ValidationClass {
     }
     
     public static void ValidateColor(String color){
-        if(color.isBlank()||color.isEmpty()||color.matches("[a-z A-Z]+")){
+        if(color.isBlank()||color.isEmpty()||color.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The color has invalid characters. ");
         }
     }
@@ -287,7 +287,7 @@ public final class ValidationClass {
     //      VALIDACION CLASE_MECHANIC
     
     public static void ValidateSpecialTy(String specialty){
-        if(specialty.isBlank()||specialty.isEmpty()||specialty.matches("[a-z A-Z]+")){
+        if(specialty.isBlank()||specialty.isEmpty()||specialty.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The specialty has invalid characters. ");
         }
     }

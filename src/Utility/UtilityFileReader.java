@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import concesionario.Concesionario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class UtilityFileReader {
@@ -305,6 +307,23 @@ public class UtilityFileReader {
             reader.close();
         }catch(IOException e){
             System.err.println("Error reading file: "+e.getMessage());
+        }
+    }
+    
+    //file writer
+    
+    public static void createReport(String filePath,ArrayList<Vehicle> vehicles){
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
+            writer.write("\tVehicle information ");
+            writer.newLine();
+            for (Vehicle v: vehicles){
+                writer.write(v.toString());
+                writer.newLine();
+            }
+            writer.close();
+            System.out.println("File has been created: "+filePath);
+        }catch(IOException e){
+            System.err.println("File could not be created: "+e.getMessage());
         }
     }
 }

@@ -21,5 +21,6 @@ public class Concesionario {
         for(Vehicle v:vehicles){
             System.out.println(v.toString());
         }
+        UtilityFileReader.createReport("./report.txt", vehicles);
     }
 }
