@@ -1,7 +1,7 @@
 
 package VehicleCatalog;
 import Validation.ValidationClass;
-public class HyperMotorbike extends Sport{
+public class HyperMotorbike extends Sport implements TrackOnly{
     
     private double maxSpeed;
     private int downForce;
@@ -36,6 +36,13 @@ public class HyperMotorbike extends Sport{
         return this.downForce;
     }
     
+    @Override
+    public void showTrackOnly(){
+        System.out.println(this.getModel()+"\nThis vehicle cannot be driven on public roads because it"+
+            "\nlacks homologation, as it does not have the necessary safety equipment and does"+
+            "\nnot comply with emissions and noise regulations."+
+            "\nThis vehicle is exclusively for trcak racing");
+    }
     @Override
     public String toString(){
         String str=super.toString()+"\nMax speed: "+this.maxSpeed+"\nDownForce: "+this.downForce;
