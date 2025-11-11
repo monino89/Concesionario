@@ -58,11 +58,8 @@ public class Touring extends MotorBike{
     //METODO UNICO 
     @Override
     public void showPrice() {
-        if(this.getUsed()==true){
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 80,000,000.00 COP");
-        }else{
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 115,000,000.00 COP");
-        }
+        System.out.println("\nINFORMATION PRICE:\n"+this.getPrice()+" COL");
+
     }
 
     //METODO UNICO 

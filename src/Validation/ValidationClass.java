@@ -6,6 +6,8 @@ public final class ValidationClass {
     
     private ValidationClass(){}
     
+    
+    //      VALIDACION CLASE_PERSON
     public static void validateName(String name){
         if(!name.matches("[a-z A-Z]+")){
             throw new IllegalArgumentException("The name is not valid");
@@ -207,6 +209,101 @@ public final class ValidationClass {
     public static void ValidateHybridPropulsion(String hybridPropulsion){
         if(hybridPropulsion.isBlank()||hybridPropulsion.isEmpty()||hybridPropulsion.matches("[a-z A-Z]+")==false){
             throw new IllegalArgumentException("The hybrid propulsion has invalid cahracters. ");
+        }
+    }
+    
+    
+    //      VALIDACION CLASE_WORKER
+    
+    public static void ValidateId(String id){
+        if(id.isBlank()||id.isEmpty()||id.matches("[0-9]+")){
+            throw new IllegalArgumentException("The Id has invalid characters. ");
+        }
+    }
+    
+    public static void ValidateEmail(String email){
+        if(email.isBlank()||email.isEmpty()||email.matches("^[_a-z 0-9-]+(\\.[_a-z 0-9-]+)*@[a-z 0-9-]+(\\.[a-z 0-9-]+)*(\\.[a-z]{2,})$")){
+            throw new IllegalArgumentException("The email has invalid characters. ");
+        }
+    }
+    
+    public static void ValidateYearsOfExperience(int yearsOfExperience){
+        if(yearsOfExperience<0){
+            throw new IllegalArgumentException("The years of experience must be grater than zero. ");
+        }
+    }
+
+    
+    
+    //      VALIDACION CLASE_VEHICLE
+    
+    public static void ValidateBrand(String brand){
+        if(brand.isBlank()||brand.isEmpty()||brand.matches("[a-z A-Z]+")){
+            throw new IllegalArgumentException("The brand has invalid characters. ");
+        }
+    }
+    
+    public static void ValidateModel(String model){
+        if(model.isBlank()||model.isEmpty()||model.matches("[a-z A-Z 0-9]+")){
+            throw new IllegalArgumentException("The model has invalid characters. ");
+        }
+    }
+    
+    public static void ValidateYear(int year){
+        if(year<1885){
+            throw new IllegalArgumentException("The year must be grater than 1885. ");
+        }
+    }
+    
+    
+    public static void ValidatePrice(double price){
+        if(price<0.0){
+            throw new IllegalArgumentException("The price must be grater than zero. ");
+        }
+    }
+    
+    public static void ValidateColor(String color){
+        if(color.isBlank()||color.isEmpty()||color.matches("[a-z A-Z]+")){
+            throw new IllegalArgumentException("The color has invalid characters. ");
+        }
+    }
+    
+    public static void ValidateWeight(double weight){
+        if(weight<0.0){
+            throw new IllegalArgumentException("The weight must be grater than zero. ");
+        }
+    }
+    
+
+    
+    //      VALIDACION CLASE_SELLER
+    
+    public static void ValidateSalesMade(int salesMade){
+        if(salesMade<0){
+            throw new IllegalArgumentException("The sales made must be grater than zero. ");
+        }
+    }
+    
+    //      VALIDACION CLASE_MECHANIC
+    
+    public static void ValidateSpecialTy(String specialty){
+        if(specialty.isBlank()||specialty.isEmpty()||specialty.matches("[a-z A-Z]+")){
+            throw new IllegalArgumentException("The specialty has invalid characters. ");
+        }
+    }
+    
+    //      VALIDACION CLASE_PAYMENTMETHOD
+    
+    
+    public static void ValidateCashDiscont(double cashDiscont){
+        if(cashDiscont<0.0){
+            throw new IllegalArgumentException("The cashdiscont must be grater than zero. ");
+        }
+    }
+    
+    public static void ValidateInterest(double interest){
+        if(interest<0.0){
+            throw new IllegalArgumentException("The interest must be grater than zero. ");
         }
     }
 }

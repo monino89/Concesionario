@@ -59,11 +59,8 @@ public class Sport extends MotorBike{
     //METODO UNICO 
     @Override
     public void showPrice() {
-        if(this.getUsed()==true){
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 45,000,000.00 COP");
-        }else{
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 75,000,000.00 COP");
-        }
+        System.out.println("\nINFORMATION PRICE:\n"+this.getPrice()+" COL");
+
     }
 
     //METODO UNICO 

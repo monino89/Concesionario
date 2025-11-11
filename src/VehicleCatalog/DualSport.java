@@ -57,11 +57,7 @@ public class DualSport extends MotorBike{
     //METODO UNICO 
     @Override
     public void showPrice() {
-        if(this.getUsed()==true){
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 8,000,000.00 COP");
-        }else{
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 16,000,000.00 COP");
-        }
+        System.out.println("\nINFORMATION PRICE:\n"+this.getPrice()+" COL");
     }
 
     //METODO UNICO 
