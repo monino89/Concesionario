@@ -1,5 +1,7 @@
 
 package VehicleCatalog;
+import Validation.ValidationClass;
+
 public abstract class Vehicle {
     private String brand;
     private String model;
@@ -8,6 +10,7 @@ public abstract class Vehicle {
     private String color;
     private double weight;
     private boolean used;
+    private int vehicleId;
     
     public Vehicle(){
         this.brand="";
@@ -17,8 +20,9 @@ public abstract class Vehicle {
         this.color="";
         this.weight=0;
         this.used=false;
+        this.vehicleId=0;
     }
-    public Vehicle(String brand,String model,int year,double price,String color,double weight,boolean used){
+    public Vehicle(String brand,String model,int year,double price,String color,double weight,boolean used,int vehicleId){
         this.setBrand(brand);
         this.setModel(model);
         this.setYear(year);
@@ -26,26 +30,32 @@ public abstract class Vehicle {
         this.setColor(color);
         this.setWeight(weight);
         this.setUsed(used);
+        this.vehicleId=vehicleId;
     }
     
-    //
     
     public final void setBrand(String brand){
+        ValidationClass.ValidateBrand(brand);
         this.brand=brand;
     }
     public final void setModel(String model){
+        ValidationClass.ValidateModel(model);
         this.model=model;
     }
-    public final void setYear(int Year){
+    public final void setYear(int year){
+        ValidationClass.ValidateYear(year);
         this.year=year;
     }
-    public final void setPrice(double Price){
+    public final void setPrice(double price){
+        ValidationClass.ValidatePrice(price);
         this.price=price;
     }
     public final void setColor(String color){
+        ValidationClass.ValidateColor(color);
         this.color=color;
     }
     public final void setWeight(double weight){
+        ValidationClass.ValidateWeight(weight);
         this.weight=weight;
     }
     public final void setUsed(boolean used){
@@ -71,9 +81,10 @@ public abstract class Vehicle {
     }
     public boolean getUsed(){
         return this.used;
-    }   
+    } 
+    @Override
     public String toString(){
-        String str="Brand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
+        String str="\nId: "+this.vehicleId+"\nBrand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
         if(this.used){
             str+="\nThe vehicle is used";
         }else{
