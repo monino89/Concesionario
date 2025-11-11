@@ -1,6 +1,6 @@
 
 package People;
-
+import Validation.ValidationClass;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
 
@@ -20,11 +20,12 @@ public class Seller extends Worker {
         this.vehicleInCharge = new ArrayList<>();
     }
     
-    public final void setSalesMade(int salesMade){
+    protected final void setSalesMade(int salesMade){
+        ValidationClass.ValidateSalesMade(salesMade);
         this.salesMade = salesMade;
     }
     
-    public int getSalesMade(){
+    protected int getSalesMade(){
         return this.salesMade;
     }
     
@@ -34,7 +35,16 @@ public class Seller extends Worker {
     
     @Override
     public String toString(){
-        String str = "\nSales made: " + this.salesMade;
+        String str = super.toString() + "\nSales made: " + this.salesMade;
+        if (this.vehicleInCharge.size()>0){
+            str += "Vehciles in charge: \n";
+            for(Vehicle a: this.vehicleInCharge){
+                str += a.toString() + "\n";
+            }
+            
+        } else {
+            str += "The seller does not have any vehicles to sell.\n";
+        }
         return str;
     }
 }

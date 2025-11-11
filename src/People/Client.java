@@ -1,6 +1,7 @@
 
 package People;
 
+import Validation.ValidationClass;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
 
@@ -21,11 +22,11 @@ public class Client extends Person {
         this.paymentMethod = new PaymentMethod();
     }
     
-    public final void setNewClient(boolean newClient){
+    protected final void setNewClient(boolean newClient){
         this.newClient = newClient;
     }
     
-    public boolean getNewClient(){
+    protected boolean getNewClient(){
         return this.newClient;
     }
     
@@ -36,19 +37,27 @@ public class Client extends Person {
     @Override
     
     public String toString(){
-        String str = null;
-        if (newClient == true){
-            str += "\nNew client.";
+        String str = super.toString();
+        if (this.shoppingList.size()>0){
+            str += "Shopping list: \n";
+            for(Vehicle a: this.shoppingList){
+                str += a.toString() + "\n";
+            }
+            
         } else {
-            str += "\nPrevious client.";
+            str += "The customer has not added vehicles to their shopping list.\n";
         }
-        
-        str += "";
         return str;
     }
     
     public void thankYouMessage(){
-        System.out.println("");
+        if (newClient == true){
+            System.out.println("\nPlease thanks the customer for being a new client.");
+            
+        } else {
+            System.out.println("\nPlease thanks the customer for being a loyal client.");
+        }
+        
     }
     
 }
