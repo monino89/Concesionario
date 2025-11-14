@@ -30,15 +30,54 @@ public class Concesionario {
         //CODIGO PARA EL MENU
         int option, addVehicleOpt;
         boolean stop=false;
-        String vehicleId;
+        
+        //Clase Client
+        String name, lastName1, lastName2, dni, phone;
+        int age, clientId;
+        boolean newClient;
+        
+        //Clase Vehicle
+        String brand, model, color;
+        int year, vehicleId;
+        double price, weight;
+        boolean used;
+        
         Scanner scanner= new Scanner(System.in);
         
         try{
-            //Vehicle ArrayList
-            ArrayList<Vehicle> veh=Menu.readVehicle();
+            while(!stop){
+                Menu.printMenu();
+                System.out.println("Please type the desired option: ");
+                option = scanner.nextInt();
+                scanner.nextLine();
+                
+                switch(option){
+                    case 1:
+                        //Print vehicles information
+                        System.out.println("VEHICLE INFORMATIONS");
+                        for(Vehicle v: vehicles){
+                            System.out.println(v.toString());
+                        }
+                        break;
+                    case 2:
+                        //Print Client information
+                        System.out.println("\nCLIENTS INFORMATION");
+                        for(Person p: people){
+                            System.out.println(p.toString());
+                        }
+                        break;
+                    case 3:
+                        //Modyfi an existing client
+                        Client tempC=null;
+                        System.out.println("Please type the id of the client to modify");
+                        clientId=scanner.nextLine();
+                        for()
+                        }
+                }
+            }
+            
         }catch(Exception e){
             
-        }
-           */
+        }*/
     }
 }
