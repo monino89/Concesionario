@@ -381,6 +381,34 @@ public class UtilityFileReader {
             }
             reader.close();
         }catch(IOException e){
+            System.err.println("Error reading file "+e.getMessage());
+        }
+    }
+    
+    
+    
+    //file writer
+    
+    public static void createReport(String filePath,ArrayList<Vehicle> vehicles,ArrayList<Person> people){
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
+            writer.write("\tVehicle information");
+            //writer.newLine();
+            for (Vehicle v: vehicles){
+                writer.write(v.toString());
+                //writer.newLine();
+            }
+            writer.write("\n\tPersonal information\n");
+            writer.newLine();
+            for(Person p:people){
+                writer.write(p.toString());
+                writer.newLine();
+            }
+            writer.close();
+            System.out.println("Report file has been created: "+filePath);
+        }catch(IOException e){
+            System.err.println("Report file could not be created: "+e.getMessage());
+        }
+    }
     
     //Seller
     
@@ -416,26 +444,6 @@ public class UtilityFileReader {
         }
     }
     
-    //file writer
-    
-    public static void createReport(String filePath,ArrayList<Vehicle> vehicles,ArrayList<Person> people){
-        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
-            writer.write("\tVehicle information");
-            //writer.newLine();
-            for (Vehicle v: vehicles){
-                writer.write(v.toString());
-                //writer.newLine();
-            }
-            writer.write("\n\tPersonal information\n");
-            writer.newLine();
-            for(Person p:people){
-                writer.write(p.toString());
-                writer.newLine();
-            }
-            writer.close();
-            System.out.println("Report file has been created: "+filePath);
-        }catch(IOException e){
-            System.err.println("Report file could not be created: "+e.getMessage());
     //Mechanic
     
     public static void readMechanic(String filePath, ArrayList people){
