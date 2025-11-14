@@ -1,6 +1,8 @@
 
 package concesionario;
 
+import People.Client;
+import People.Person;
 import Utility.Menu;
 import Utility.UtilityFileReader;
 import VehicleCatalog.Touring;
@@ -12,6 +14,7 @@ public class Concesionario {
     public static void main(String[] args) {
         //crear la arraylist vehicles de todos los vehiculos leyendo los archivos, touring retorna arraylist y el resto solo agregan a la arraylist
         ArrayList<Vehicle> vehicles=new ArrayList<>(UtilityFileReader.readTouring("./touring.txt"));
+        ArrayList<Person> people=new ArrayList<>(UtilityFileReader.readClient("./client.txt"));
         UtilityFileReader.readSport("./sport.txt", vehicles);
         UtilityFileReader.readDualSport("./dualsport.txt", vehicles);
         UtilityFileReader.readSedan("./sedan.txt", vehicles);
@@ -21,6 +24,9 @@ public class Concesionario {
         UtilityFileReader.readHyperCar("./hypercar.txt", vehicles);
         //
         Menu.printMenu();
-        UtilityFileReader.readClient("./client.txt", vehicles);
+        for(Person p:people){
+            System.out.println(p.toString());
+        }
+        UtilityFileReader.createReport("./report.txt", vehicles, people);
     }
 }

@@ -40,14 +40,13 @@ public class Client extends Person {
     @Override
     
     public String toString(){
-        String str = null;
+        String str = "Client "+super.toString();
         if (newClient == true){
             str += "\nNew client.";
         } else {
             str += "\nPrevious client.";
         }
-        
-        str += "";
+        str+="\nClient id: "+this.clientId;
         return str;
     }
     

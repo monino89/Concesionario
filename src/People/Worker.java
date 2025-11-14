@@ -49,7 +49,7 @@ public class Worker extends Person {
     @Override
     
     public String toString(){
-        String str = "\nEmployee id: " + this.id + "\nEmail: " + this.email + "\nYears of Experience: " + this.yearsOfExperience;
+        String str = "Worker"+super.toString()+"\nEmployee id: " + this.id + "\nEmail: " + this.email + "\nYears of Experience: " + this.yearsOfExperience;
         return str;
     }
     

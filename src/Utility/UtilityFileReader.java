@@ -1,6 +1,7 @@
 //esto esta muy mal hecho para poder copiar y pegar, seria mejor no tocarlo
 package Utility;
 import People.Client;
+import People.Person;
 import VehicleCatalog.CarSport;
 import VehicleCatalog.DualSport;
 import VehicleCatalog.HyperCar;
@@ -311,8 +312,10 @@ public class UtilityFileReader {
         }
     }
     //client
-    public static void readClient(String filePath,ArrayList vehicles){
+    public static ArrayList readClient(String filePath){
         String line="";
+        Client client=null;
+        ArrayList<Person> people=new ArrayList<>();
         try(BufferedReader reader=new BufferedReader(new FileReader(filePath))){
             reader.readLine();
             while((line=reader.readLine())!=null){
@@ -327,7 +330,7 @@ public class UtilityFileReader {
                         String phone=parts[5].trim();
                         boolean newClient=Boolean.parseBoolean(parts[6].trim());
                         int clientId=Integer.parseInt(parts[7].trim());
-                        vehicles.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient,clientId));
+                        people.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient,clientId));
                     }else{
                      System.out.println("Insuficiente data to create object");
                     }
@@ -339,22 +342,29 @@ public class UtilityFileReader {
         }catch(IOException e){
             System.err.println("Error reading file: "+e.getMessage());
         }
+        return people;
     }
     
     //file writer
     
-    public static void createReport(String filePath,ArrayList<Vehicle> vehicles){
+    public static void createReport(String filePath,ArrayList<Vehicle> vehicles,ArrayList<Person> people){
         try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
-            writer.write("\tVehicle information ");
+            writer.write("\tVehicle information");
             writer.newLine();
             for (Vehicle v: vehicles){
                 writer.write(v.toString());
                 writer.newLine();
             }
+            writer.write("\n\tPersonal information\n");
+            writer.newLine();
+            for(Person p:people){
+                writer.write(p.toString());
+                writer.newLine();
+            }
             writer.close();
-            System.out.println("File has been created: "+filePath);
+            System.out.println("Report file has been created: "+filePath);
         }catch(IOException e){
-            System.err.println("File could not be created: "+e.getMessage());
+            System.err.println("Report file could not be created: "+e.getMessage());
         }
     }
 }

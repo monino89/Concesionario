@@ -37,7 +37,7 @@ public class Mechanic extends Worker {
     
     @Override
     public String toString(){
-        String str = "\nSpecialty: " + this.specialty;
+        String str = "Mechanic "+super.toString()+"\nSpecialty: " + this.specialty;
         return str;
     }
 }

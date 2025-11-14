@@ -33,19 +33,19 @@ public final class ValidationClass {
     }
     
     public static void validateDni(String dni){
-        if( dni == null || !dni.matches("\\d{8,10}")){
+        if( dni == null || dni.length()!=10){
             throw new IllegalArgumentException("The dni is not valid.");
         }
     }
     
     public static void validatePhone(String phone){
-        if( phone == null || !phone.matches("\\d{10}")){
+        if( phone == null || (phone.length()==10)==false){
             throw new IllegalArgumentException("The phone number is not valid.");
         }
     }
     
     public static void validateCode(String code){
-        if( code == null || !code.matches("\\d{7}")){
+        if( code == null || (code.length()==7)==false){
             throw new IllegalArgumentException("The employee code is not valid.");
         }
     }

@@ -1,4 +1,4 @@
-	Vehicle information 
+	Vehicle information
 
 Id: 1
 Brand: toyota
@@ -120,3 +120,12 @@ Acceleration 0 to 100: 3.0
 Material: leather
 Hybrid propulsion: propulsionhypercar
 DownForce: 8
+
+	Personal information
+
+Client name: david Santiago pinzon diaz
+Age: 16
+Dni: 1234567890
+Phone number: 1234567899
+New client.
+Client id: 1

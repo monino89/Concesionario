@@ -14,7 +14,7 @@ public class Person {
         
     }
     
-    public Person(String name, String lastName1, String lastName2, int age, String dne, String phone){
+    public Person(String name, String lastName1, String lastName2, int age, String dni, String phone){
         this.setName(name);
         this.setLastName1(lastName1);
         this.setLastName2(lastName2);
@@ -79,7 +79,7 @@ public class Person {
     
     @Override
     public String toString(){
-        String str = "Name: " + this.name + " " + this.lastName1 + " " + this.lastName2
+        String str = "name: " + this.name + " " + this.lastName1 + " " + this.lastName2
                 + "\nAge: " + this.age + "\nDni: " + this.dni + "\nPhone number: " + this.phone;
         return str;
     }
