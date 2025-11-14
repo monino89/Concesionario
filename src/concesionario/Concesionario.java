@@ -47,5 +47,21 @@ public class Concesionario {
             
         }
            */
+        
+        //crear la lista de clientes, client retorna arraylist y el resto agregan a la lista
+        ArrayList<Person> people = new ArrayList<>(UtilityFileReader.readClient("./clients.txt"));
+        UtilityFileReader.readSeller("./sellers.txt", people);
+        UtilityFileReader.readMechanic("./mechanics.txt", people);
+        
+        //Imprimir lista vehiculos
+        for(Vehicle v:vehicles){
+            System.out.println(v.toString());
+        }
+        
+        //Imprimir lista de clientes y trabajadores
+        for(Person p: people){
+            System.out.println(p.toString() + "\n");
+        }
+        
     }
 }
