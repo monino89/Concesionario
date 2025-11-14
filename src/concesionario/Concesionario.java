@@ -24,6 +24,7 @@ public class Concesionario {
         UtilityFileReader.readHyperCar("./hypercar.txt", vehicles);
         //
         Menu.printMenu();
+        UtilityFileReader.createRelations("./relations.txt", vehicles, people);
         for(Person p:people){
             System.out.println(p.toString());
         }

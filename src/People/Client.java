@@ -32,7 +32,9 @@ public class Client extends Person {
     protected boolean getNewClient(){
         return this.newClient;
     }
-    
+    public int getClientId(){
+        return this.clientId;
+    }
     public void addShoppingList(Vehicle vehicle){
         this.shoppingList.add(vehicle);
     }
@@ -47,6 +49,10 @@ public class Client extends Person {
             str += "\nPrevious client.";
         }
         str+="\nClient id: "+this.clientId;
+        str+="\n\tCurrent shopping list: ";
+        for(Vehicle v:this.shoppingList){
+            str+=v.toString();
+        }
         return str;
     }
     

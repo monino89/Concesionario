@@ -120,7 +120,6 @@ Acceleration 0 to 100: 3.0
 Material: leather
 Hybrid propulsion: propulsionhypercar
 DownForce: 8
-
 	Personal information
 
 Client name: david Santiago pinzon diaz
@@ -129,3 +128,35 @@ Dni: 1234567890
 Phone number: 1234567899
 New client.
 Client id: 1
+	Current shopping list: 
+
+Id: 4
+Brand: marcasedan
+Model: modelosedan
+Year: 1945
+Price: 5643.0
+Color: colorsedan
+Weight: 5321.0
+The vehicle is brand new
+Number of doors: 4
+Passenger capacity: 5
+Fuel type: fuelsedan
+Power: 56213.0
+Type sedan: typesedan
+Trunk capacity: 532.3241
+
+Id: 7
+Brand: brandhyper
+Model: modelhyper
+Year: 8778
+Price: 3541.0
+Color: colorhyper
+Weight: 66531.0
+The vehicle is used
+Cylinder Capacity: 351638.0
+Engine Type: enginehyper
+Brake Type: brakehyper
+Chassis Material: chasishyper
+Time from 0 to 100: 3.0
+Max speed: 564.0
+DownForce: 87654

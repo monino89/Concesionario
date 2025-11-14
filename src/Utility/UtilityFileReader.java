@@ -345,15 +345,53 @@ public class UtilityFileReader {
         return people;
     }
     
+    //relaciones/relations
+    
+    public static void createRelations(String filePath, ArrayList<Vehicle> vehicles,ArrayList<Person> people){
+        String line="";
+        Client client=null;
+        try(BufferedReader reader=new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts=line.split(",");
+                try{
+                    if(parts.length>=2){
+                        int vehicleId=Integer.parseInt(parts[0].trim());
+                        int clientId=Integer.parseInt(parts[1].trim());
+                        for(Person p:people){
+                            if(p instanceof Client){
+                                if(clientId==((Client) p).getClientId()){
+                                    for(Vehicle v:vehicles){
+                                        if(v.getVehicleId()==vehicleId){
+                                            ((Client) p).addShoppingList(v);
+                                            System.out.println("vehicle added");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                     System.out.println("Insuficiente data to create object");
+                    }
+                }catch(Exception e){
+                    System.out.println("Error creating the object: "+e.getMessage());
+                }
+            }
+            reader.close();
+        }catch(IOException e){
+            System.err.println("Error reading file: "+e.getMessage());
+        }
+    }
+    
     //file writer
     
     public static void createReport(String filePath,ArrayList<Vehicle> vehicles,ArrayList<Person> people){
         try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
             writer.write("\tVehicle information");
-            writer.newLine();
+            //writer.newLine();
             for (Vehicle v: vehicles){
                 writer.write(v.toString());
-                writer.newLine();
+                //writer.newLine();
             }
             writer.write("\n\tPersonal information\n");
             writer.newLine();
