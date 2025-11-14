@@ -46,10 +46,6 @@ class PaymentMethod {
     }
     
     public void calculatePrice(){
-        if (this.cash == true){
-            this.cashDiscount = 0.9;
-        } else {
-            this.interest = 0.03;
-        }
+        
     }
 }
