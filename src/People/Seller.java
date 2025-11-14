@@ -35,7 +35,16 @@ public class Seller extends Worker {
     
     @Override
     public String toString(){
-        String str = "\nSales made: " + this.salesMade;
+        String str = super.toString() + "\nSales made: " + this.salesMade;
+        if (this.vehicleInCharge.size()>0){
+            str += "Vehciles in charge: \n";
+            for(Vehicle a: this.vehicleInCharge){
+                str += a.toString() + "\n";
+            }
+            
+        } else {
+            str += "The seller does not have any vehicles to sell.\n";
+        }
         return str;
     }
 }
