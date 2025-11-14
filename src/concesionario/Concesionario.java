@@ -6,6 +6,7 @@ import VehicleCatalog.Touring;
 import VehicleCatalog.MotorBike;
 import VehicleCatalog.Vehicle;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Concesionario {
     public static void main(String[] args) {
@@ -21,5 +22,23 @@ public class Concesionario {
         for(Vehicle v:vehicles){
             System.out.println(v.toString());
         }
+        
+        
+        
+        /*
+        
+        //CODIGO PARA EL MENU
+        int option, addVehicleOpt;
+        boolean stop=false;
+        String vehicleId;
+        Scanner scanner= new Scanner(System.in);
+        
+        try{
+            //Vehicle ArrayList
+            ArrayList<Vehicle> veh=Menu.readVehicle();
+        }catch(Exception e){
+            
+        }
+           */
     }
 }
