@@ -1,2 +1,2 @@
 BRAND,MODEL,YEAR,PRICE,COLOR,WEIGHT,USED,NUMDOOR,PASSENGERCAPACITY,FUELTYPE,POWER,LOADCAPACITY,PLATESIZE,TRACTION,ID
-marcapickup,modelopickup,1261,321465,colorpickup,5431,false,6,8,fuelpickup,786532,45684,65184,tractionpickup,6
+marcapickup,modelopickup,1902,321465,colorpickup,5431,false,6,8,fuelpickup,786532,45684,65184,tractionpickup,6

@@ -82,9 +82,12 @@ public abstract class Vehicle {
     public boolean getUsed(){
         return this.used;
     } 
+    public int getVehicleId(){
+        return this.vehicleId;
+    }
     @Override
     public String toString(){
-        String str="\nId: "+this.vehicleId+"\nBrand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
+        String str="\n\nId: "+this.vehicleId+"\nBrand: "+this.brand+"\nModel: "+this.model+"\nYear: "+this.year+"\nPrice: "+this.price+"\nColor: "+this.color+"\nWeight: "+this.weight;
         if(this.used){
             str+="\nThe vehicle is used";
         }else{

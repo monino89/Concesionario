@@ -17,6 +17,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import concesionario.Concesionario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class UtilityFileReader {
@@ -311,40 +313,74 @@ public class UtilityFileReader {
             System.err.println("Error reading file: "+e.getMessage());
         }
     }
-    
     //client
-    
-    public static ArrayList<Person> readClient(String filePath){
-        ArrayList <Person> client = new ArrayList<>();
-        String line = "";
-        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+    public static ArrayList readClient(String filePath){
+        String line="";
+        Client client=null;
+        ArrayList<Person> people=new ArrayList<>();
+        try(BufferedReader reader=new BufferedReader(new FileReader(filePath))){
             reader.readLine();
             while((line=reader.readLine())!=null){
-                String[] parts = line.split(",");
+                String[] parts=line.split(",");
                 try{
-                   if(parts.length>=7){
-                    String name = parts[0].trim();
-                    String lastName1 = parts[1].trim();
-                    String lastName2 = parts[2].trim();
-                    int age = Integer.parseInt(parts[3].trim());
-                    String dni = parts[4].trim();
-                    String phone = parts[5].trim();
-                    boolean newClient = Boolean.parseBoolean(parts[6].trim());
-                    client.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient));
-                } else {
-                    System.out.println("Insufficient data to create client");
+                    if(parts.length>=8){
+                        String name=parts[0].trim();
+                        String lastName1=parts[1].trim();
+                        String lastName2=parts[2].trim();
+                        int age=Integer.parseInt(parts[3].trim());
+                        String dni=parts[4].trim();
+                        String phone=parts[5].trim();
+                        boolean newClient=Boolean.parseBoolean(parts[6].trim());
+                        int clientId=Integer.parseInt(parts[7].trim());
+                        people.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient,clientId));
+                    }else{
+                     System.out.println("Insuficiente data to create object");
+                    }
+                }catch(Exception e){
+                    System.out.println("Error creating the object: "+e.getMessage());
                 }
-                } catch(Exception e){
-                    System.out.println("Error creating the objetct " + e.getMessage());
-                }  
             }
-            
-        }
-        catch(IOException e){
+            reader.close();
+        }catch(IOException e){
             System.err.println("Error reading file: "+e.getMessage());
         }
-        return client;
+        return people;
     }
+    
+    //relaciones/relations
+    
+    public static void createRelations(String filePath, ArrayList<Vehicle> vehicles,ArrayList<Person> people){
+        String line="";
+        Client client=null;
+        try(BufferedReader reader=new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts=line.split(",");
+                try{
+                    if(parts.length>=2){
+                        int vehicleId=Integer.parseInt(parts[0].trim());
+                        int clientId=Integer.parseInt(parts[1].trim());
+                        for(Person p:people){
+                            if(p instanceof Client){
+                                if(clientId==((Client) p).getClientId()){
+                                    for(Vehicle v:vehicles){
+                                        if(v.getVehicleId()==vehicleId){
+                                            ((Client) p).addShoppingList(v);
+                                            System.out.println("vehicle added");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                     System.out.println("Insuficiente data to create object");
+                    }
+                }catch(Exception e){
+                    System.out.println("Error creating the object: "+e.getMessage());
+                }
+            }
+            reader.close();
+        }catch(IOException e){
     
     //Seller
     
@@ -380,6 +416,26 @@ public class UtilityFileReader {
         }
     }
     
+    //file writer
+    
+    public static void createReport(String filePath,ArrayList<Vehicle> vehicles,ArrayList<Person> people){
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filePath))){
+            writer.write("\tVehicle information");
+            //writer.newLine();
+            for (Vehicle v: vehicles){
+                writer.write(v.toString());
+                //writer.newLine();
+            }
+            writer.write("\n\tPersonal information\n");
+            writer.newLine();
+            for(Person p:people){
+                writer.write(p.toString());
+                writer.newLine();
+            }
+            writer.close();
+            System.out.println("Report file has been created: "+filePath);
+        }catch(IOException e){
+            System.err.println("Report file could not be created: "+e.getMessage());
     //Mechanic
     
     public static void readMechanic(String filePath, ArrayList people){

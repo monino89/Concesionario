@@ -79,7 +79,7 @@ public class Person {
     
     @Override
     public String toString(){
-        String str = "Name: " + this.name + " " + this.lastName1 + " " + this.lastName2
+        String str = "name: " + this.name + " " + this.lastName1 + " " + this.lastName2
                 + "\nAge: " + this.age + "\nDni: " + this.dni + "\nPhone number: " + this.phone;
         return str;
     }
