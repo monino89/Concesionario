@@ -37,7 +37,16 @@ public class Mechanic extends Worker {
     
     @Override
     public String toString(){
-        String str = "Mechanic "+super.toString()+"\nSpecialty: " + this.specialty;
+        String str = super.toString() + "\nSpecialty: " + this.specialty;
+        if (this.vehicleCheck.size()>0){
+            str += "Vehciles to repair: \n";
+            for(Vehicle a: this.vehicleCheck){
+                str += a.toString() + "\n";
+            }
+            
+        } else {
+            str += "The mechanic does not have any vehicles to check.\n";
+        }
         return str;
     }
 }

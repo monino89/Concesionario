@@ -42,11 +42,19 @@ public class Client extends Person {
     @Override
     
     public String toString(){
-        String str = "Client "+super.toString();
-        if (newClient == true){
-            str += "\nNew client.";
+        String str = super.toString();
+        if (this.shoppingList.size()>0){
+            str += "Shopping list: \n";
+            for(Vehicle a: this.shoppingList){
+                str += a.toString() + "\n";
+                if (paymentMethod.getCash() == true){
+                   str += "\nVehicle price after discount: " + a.getPrice()*paymentMethod.getCashDiscount(); 
+                } else {
+                    str += "\nVehicle interest per month: " + a.getPrice()*paymentMethod.getInterest();
+                }
+            }
         } else {
-            str += "\nPrevious client.";
+            str += "The customer has not added vehicles to their shopping list.\n";
         }
         str+="\nClient id: "+this.clientId;
         str+="\n\tCurrent shopping list: ";
@@ -54,10 +62,18 @@ public class Client extends Person {
             str+=v.toString();
         }
         return str;
+       
     }
     
+    
     public void thankYouMessage(){
-        System.out.println("");
+        if (newClient == true){
+            System.out.println("\nPlease thanks the customer for being a new client.");
+            
+        } else {
+            System.out.println("\nPlease thanks the customer for being a loyal client.");
+        }
+        
     }
     
 }
