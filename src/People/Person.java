@@ -14,7 +14,7 @@ public class Person {
         
     }
     
-    public Person(String name, String lastName1, String lastName2, int age, String dne, String phone){
+    public Person(String name, String lastName1, String lastName2, int age, String dni, String phone){
         this.setName(name);
         this.setLastName1(lastName1);
         this.setLastName2(lastName2);

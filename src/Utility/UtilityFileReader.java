@@ -1,5 +1,9 @@
 //esto esta muy mal hecho para poder copiar y pegar, seria mejor no tocarlo
 package Utility;
+import People.Client;
+import People.Mechanic;
+import People.Person;
+import People.Seller;
 import VehicleCatalog.CarSport;
 import VehicleCatalog.DualSport;
 import VehicleCatalog.HyperCar;
@@ -304,6 +308,108 @@ public class UtilityFileReader {
             }
             reader.close();
         }catch(IOException e){
+            System.err.println("Error reading file: "+e.getMessage());
+        }
+    }
+    
+    //client
+    
+    public static ArrayList<Person> readClient(String filePath){
+        ArrayList <Person> client = new ArrayList<>();
+        String line = "";
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts = line.split(",");
+                try{
+                   if(parts.length>=7){
+                    String name = parts[0].trim();
+                    String lastName1 = parts[1].trim();
+                    String lastName2 = parts[2].trim();
+                    int age = Integer.parseInt(parts[3].trim());
+                    String dni = parts[4].trim();
+                    String phone = parts[5].trim();
+                    boolean newClient = Boolean.parseBoolean(parts[6].trim());
+                    client.add(new Client(name,lastName1,lastName2,age,dni,phone,newClient));
+                } else {
+                    System.out.println("Insufficient data to create client");
+                }
+                } catch(Exception e){
+                    System.out.println("Error creating the objetct " + e.getMessage());
+                }  
+            }
+            
+        }
+        catch(IOException e){
+            System.err.println("Error reading file: "+e.getMessage());
+        }
+        return client;
+    }
+    
+    //Seller
+    
+    public static void readSeller(String filePath, ArrayList people){
+        String line = "";
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts = line.split(",");
+                try{
+                   if(parts.length>=10){
+                    String name = parts[0].trim();
+                    String lastName1 = parts[1].trim();
+                    String lastName2 = parts[2].trim();
+                    int age = Integer.parseInt(parts[3].trim());
+                    String dni = parts[4].trim();
+                    String phone = parts[5].trim();
+                    String id = parts[6].trim();
+                    String email = parts[7].trim();
+                    int yearsOfExperience = Integer.parseInt(parts[8].trim());
+                    int salesMade = Integer.parseInt(parts[9].trim());
+                    people.add(new Seller(name,lastName1,lastName2,age,dni,phone,id,email,yearsOfExperience,salesMade));
+                } else {
+                    System.out.println("Insufficient data to create seller");
+                }
+                } catch(Exception e){
+                    System.out.println("Error creating the objetct " + e.getMessage());
+                }  
+            }
+        }
+        catch(IOException e){
+            System.err.println("Error reading file: "+e.getMessage());
+        }
+    }
+    
+    //Mechanic
+    
+    public static void readMechanic(String filePath, ArrayList people){
+        String line = "";
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            reader.readLine();
+            while((line=reader.readLine())!=null){
+                String[] parts = line.split(",");
+                try{
+                   if(parts.length>=10){
+                    String name = parts[0].trim();
+                    String lastName1 = parts[1].trim();
+                    String lastName2 = parts[2].trim();
+                    int age = Integer.parseInt(parts[3].trim());
+                    String dni = parts[4].trim();
+                    String phone = parts[5].trim();
+                    String id = parts[6].trim();
+                    String email = parts[7].trim();
+                    int yearsOfExperience = Integer.parseInt(parts[8].trim());
+                    String specialty = parts[9].trim();
+                    people.add(new Mechanic(name,lastName1,lastName2,age,dni,phone,id,email,yearsOfExperience,specialty));
+                } else {
+                    System.out.println("Insufficient data to create mechanic.");
+                }
+                } catch(Exception e){
+                    System.out.println("Error creating the objetct " + e.getMessage());
+                }  
+            }
+        }
+        catch(IOException e){
             System.err.println("Error reading file: "+e.getMessage());
         }
     }
