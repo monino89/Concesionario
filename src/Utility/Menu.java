@@ -11,21 +11,19 @@ import People.Client;
 import VehicleCatalog.Vehicle;
 
 public final class Menu {
-    /*
+    
     private Menu(){}
     
     public static void printMenu(){
         System.out.println("\n\nAVAILABLE OPTIONS");
         System.out.println("1. Print vehicles information");
         System.out.println("2. Print clients information");
-        System.out.println("3. Modify an existing Vehicle");
-        System.out.println("4. Modify an existing Cliuent");
-        System.out.println("5. Create a new vehicle");
-        System.out.println("6. Create new client");
-        System.out.println("7. Create report file");
-        System.out.println("8. End the program");
+        System.out.println("3. Modify an existing Client");
+        System.out.println("4. Create new client");
+        System.out.println("5. Create report file");
+        System.out.println("6. End the program");
     }
-    
+    /*
     public static ArrayList<Client> readClient(String filePath){
         
         ArrayList <Client> client = new ArrayList<>();

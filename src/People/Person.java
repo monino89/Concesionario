@@ -23,57 +23,57 @@ public class Person {
         this.setPhone(phone);
     }
     
-    protected final void setName(String name){
+    public void setName(String name){
         ValidationClass.validateName(name);
         this.name = name;
     }
     
-    protected final void setLastName1(String lastName1){
+    public final void setLastName1(String lastName1){
         ValidationClass.validateLastName1(lastName1);
         this.lastName1 = lastName1;
     }
     
-    protected final void setLastName2(String lastName2){
+    public final void setLastName2(String lastName2){
         ValidationClass.validateLastName2(lastName2);
         this.lastName2 = lastName2;
     }
     
-    protected final void setAge(int age){
+    public final void setAge(int age){
         ValidationClass.validateAge(age);
         this.age = age;
     }
     
-    protected final void setDni(String dni){
+    public final void setDni(String dni){
         ValidationClass.validateDni(dni);
         this.dni = dni;
     }
     
-    protected final void setPhone(String phone){
+    public final void setPhone(String phone){
         ValidationClass.validatePhone(phone);
         this.phone = phone;
     }
     
-    protected String getName(){
+    public String getName(){
         return this.name;
     }
     
-    protected String getLastName1(){
+    public String getLastName1(){
         return this.lastName1;
     }
     
-    protected String getLastName2(){
+    public String getLastName2(){
         return this.lastName2;
     }
     
-    protected int getAge(){
+    public int getAge(){
         return this.age;
     }
     
-    protected String getDni(){
+    public String getDni(){
         return this.dni;
     }
     
-    protected String getPhone(){
+    public String getPhone(){
         return this.phone;
     }
     

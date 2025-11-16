@@ -25,11 +25,11 @@ public class Client extends Person {
         this.clientId=clientId;
     }
     
-    protected final void setNewClient(boolean newClient){
+    public final void setNewClient(boolean newClient){
         this.newClient = newClient;
     }
     
-    protected boolean getNewClient(){
+    public boolean getNewClient(){
         return this.newClient;
     }
     public int getClientId(){
