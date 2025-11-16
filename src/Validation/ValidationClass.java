@@ -33,13 +33,13 @@ public final class ValidationClass {
     }
     
     public static void validateDni(String dni){
-        if(dni.isBlank()||dni.isEmpty()||dni.matches("[0-9]+")){
+        if(dni.isBlank()||dni.isEmpty()||(dni.length()==10)==false){
             throw new IllegalArgumentException("The dni is not valid.");
         }
     }
     
     public static void validatePhone(String phone){
-        if(phone.isBlank()||phone.isEmpty()||phone.matches("[0-9]+")){
+        if(phone.isBlank()||phone.isEmpty()||(phone.length()==10)==false){
             throw new IllegalArgumentException("The phone number is not valid.");
         }
     }
