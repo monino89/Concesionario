@@ -69,8 +69,8 @@ public class Concesionario {
                         }
                         break;
                     case 2:
-                        //Print Client information
-                        System.out.println("\nCLIENTS INFORMATION");
+                        //Print person information
+                        System.out.println("\nPERSON INFORMATION");
                         for(Person p: people){
                             System.out.println(p.toString());
                         }
@@ -134,7 +134,6 @@ public class Concesionario {
                             System.out.println("Vehicle not found");
                         }
                         break;
-                        
                     case 4:
                         //Create a new client
                         System.out.println("Please type the name: ");
@@ -152,17 +151,15 @@ public class Concesionario {
                         phone=scanner.nextLine();
                         System.out.println("Please type the state: ");
                         newClient=scanner.nextBoolean();
-                        System.out.println("Please type the client ID");
+                        System.out.println("Please type the client ID: ");
                         clientId=scanner.nextInt();
                         scanner.nextLine();
                         clients.add(new Client(name, lastName1, lastName2, age, dni, phone, newClient, clientId));
                         break;
-                        
                     case 5:
                         //Create report file
                         UtilityFileReader.createReport("./SystemReport.txt", vehicles, people);
                         break;
-                        
                     case 6:
                         stop=true;
                         break;
