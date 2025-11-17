@@ -20,11 +20,10 @@ public final class Menu {
         System.out.println("1. Print vehicles information");
         System.out.println("2. Print clients information");
         System.out.println("3. Modify an existing Vehicle");
-        System.out.println("4. Modify an existing Client");
-        System.out.println("5. Create new client");
-        System.out.println("6. Create report file");
-        System.out.println("7. Print workers information");
-        System.out.println("8. End the program");
+        System.out.println("4. Create new client");
+        System.out.println("5. Create report file");
+        System.out.println("6. Print workers information");
+        System.out.println("7. End the program");
         System.out.print("Select an option: ");
     }
     
@@ -45,24 +44,21 @@ public final class Menu {
                     modifyVehicle(vehicles);
                     break;
                 case 4:
-                    modifyClient(people);
-                    break;
-                case 5:
                     createClient(people);
                     break;
-                case 6:
+                case 5:
                     createReport("dealership_report.txt", vehicles, people);
                     break;
-                case 7:
+                case 6:
                     printWorkers(people);
                     break;
-                case 8:
+                case 7:
                     System.out.println("Thank you for using the system. Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
-        } while (option != 8);
+        } while (option != 7);
     }
     
     private static void printVehicles(ArrayList<Vehicle> vehicles) {
@@ -197,42 +193,7 @@ public final class Menu {
                 System.out.println("Invalid option.");
         }
     }
-    
-    private static void modifyClient(ArrayList<Person> people) {
-        ArrayList<Client> clients = new ArrayList<>();
-        for (Person person : people) {
-            if (person instanceof Client) {
-                clients.add((Client) person);
-            }
-        }
-        
-        if (clients.isEmpty()) {
-            System.out.println("No clients to modify.");
-            return;
-        }
-        
-        System.out.println("\nAvailable clients:");
-        for (int i = 0; i < clients.size(); i++) {
-            Client client = clients.get(i);
-            System.out.println((i + 1) + ". " + client.getName() + " " + client.getLastName1() + " (ID: " + client.getClientId() + ")");
-        }
-        
-        System.out.print("Select client to modify (1-" + clients.size() + "): ");
-        int choice = readIntInput();
-        
-        if (choice < 1 || choice > clients.size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
-        
-        Client selectedClient = clients.get(choice - 1);
-        System.out.println("Selected client: " + selectedClient);
-        
-        System.out.println("Client modification feature - basic version");
-        System.out.println("Modification features coming soon...");
-    }
-    
-    
+
     private static void createClient(ArrayList<Person> people) {
         System.out.println("\n=== CREATE NEW CLIENT ===");
         System.out.println("Client creation feature - basic version");
