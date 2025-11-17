@@ -53,27 +53,27 @@ public class Person {
         this.phone = phone;
     }
     
-    protected String getName(){
+    public String getName(){
         return this.name;
     }
     
-    protected String getLastName1(){
+    public String getLastName1(){
         return this.lastName1;
     }
     
-    protected String getLastName2(){
+    public String getLastName2(){
         return this.lastName2;
     }
     
-    protected int getAge(){
+    public int getAge(){
         return this.age;
     }
     
-    protected String getDni(){
+    public String getDni(){
         return this.dni;
     }
     
-    protected String getPhone(){
+    public String getPhone(){
         return this.phone;
     }
     

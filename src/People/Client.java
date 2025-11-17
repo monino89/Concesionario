@@ -40,30 +40,30 @@ public class Client extends Person {
     }
 
     @Override
+    public String toString() {
+    StringBuilder str = new StringBuilder(super.toString());
+    str.append("\nClient Type: ").append(newClient ? "New Client" : "Loyal Client");
+    str.append("\nClient ID: ").append(clientId);
     
-    public String toString(){
-        String str = super.toString();
-        if (this.shoppingList.size()>0){
-            str += "Shopping list: \n";
-            for(Vehicle a: this.shoppingList){
-                str += a.toString() + "\n";
-                if (paymentMethod.getCash() == true){
-                   str += "\nVehicle price after discount: " + a.getPrice()*paymentMethod.getCashDiscount(); 
-                } else {
-                    str += "\nVehicle interest per month: " + a.getPrice()*paymentMethod.getInterest();
-                }
+    if (this.shoppingList.size() > 0) {
+        str.append("\nShopping List:\n");
+        for (Vehicle vehicle : this.shoppingList) {
+            str.append(vehicle.toString()).append("\n");
+            if (paymentMethod.getCash()) {
+                str.append("Vehicle price after discount: ")
+                   .append(vehicle.getPrice() * (1 - paymentMethod.getCashDiscount()))
+                   .append("\n");
+            } else {
+                str.append("Vehicle interest per month: ")
+                   .append(vehicle.getPrice() * paymentMethod.getInterest())
+                   .append("\n");
             }
-        } else {
-            str += "The customer has not added vehicles to their shopping list.\n";
         }
-        str+="\nClient id: "+this.clientId;
-        str+="\n\tCurrent shopping list: ";
-        for(Vehicle v:this.shoppingList){
-            str+=v.toString();
-        }
-        return str;
-       
+    } else {
+        str.append("\nThe customer has not added vehicles to their shopping list.");
     }
+    return str.toString();
+}
     
     
     public void thankYouMessage(){
