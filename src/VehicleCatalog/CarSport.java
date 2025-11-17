@@ -45,11 +45,7 @@ public class CarSport extends Car {
     //METODO UNICO 
     @Override
     public void showPrice() {
-        if(this.getUsed()==true){
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 210,000,000.00 COP");
-        }else{
-            System.out.println("\nINFORMATION PRICE"+"\nThe price is: 260,000,000.00 COP");
-        }
+        System.out.println("\nINFORMATION PRICE:\n"+this.getPrice()+" COL");
     }
     
     //METODO UNICO 

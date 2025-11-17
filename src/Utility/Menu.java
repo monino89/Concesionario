@@ -21,11 +21,10 @@ public final class Menu {
         System.out.println("2. Print clients information");
         System.out.println("3. Modify an existing Vehicle");
         System.out.println("4. Modify an existing Client");
-        System.out.println("5. Create a new vehicle");
-        System.out.println("6. Create new client");
-        System.out.println("7. Create report file");
-        System.out.println("8. Print workers information");
-        System.out.println("9. End the program");
+        System.out.println("5. Create new client");
+        System.out.println("6. Create report file");
+        System.out.println("7. Print workers information");
+        System.out.println("8. End the program");
         System.out.print("Select an option: ");
     }
     
@@ -49,24 +48,21 @@ public final class Menu {
                     modifyClient(people);
                     break;
                 case 5:
-                    createVehicle(vehicles);
-                    break;
-                case 6:
                     createClient(people);
                     break;
-                case 7:
+                case 6:
                     createReport("dealership_report.txt", vehicles, people);
                     break;
-                case 8:
+                case 7:
                     printWorkers(people);
                     break;
-                case 9:
+                case 8:
                     System.out.println("Thank you for using the system. Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
-        } while (option != 9);
+        } while (option != 8);
     }
     
     private static void printVehicles(ArrayList<Vehicle> vehicles) {
@@ -236,12 +232,6 @@ public final class Menu {
         System.out.println("Modification features coming soon...");
     }
     
-    private static void createVehicle(ArrayList<Vehicle> vehicles) {
-        System.out.println("\n=== CREATE NEW VEHICLE ===");
-        System.out.println("Vehicle creation feature - basic version");
-        System.out.println("This feature would allow creating new vehicles interactively.");
-        System.out.println("Implementation details would depend on the specific vehicle type.");
-    }
     
     private static void createClient(ArrayList<Person> people) {
         System.out.println("\n=== CREATE NEW CLIENT ===");
