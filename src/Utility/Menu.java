@@ -1,168 +1,321 @@
-//menu de la aplicacion
 package Utility;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import People.Client;
+import People.Person;
+import People.Seller;
+import People.Mechanic;
 import VehicleCatalog.Vehicle;
 
 public final class Menu {
-    /*
-    private Menu(){}
     
-    public static void printMenu(){
-        System.out.println("\n\nAVAILABLE OPTIONS");
+    private Menu() {}
+    
+    private static Scanner scanner = new Scanner(System.in);
+    
+    public static void printMenu() {
+        System.out.println("\n\n=== CAR DEALERSHIP MANAGEMENT SYSTEM ===");
         System.out.println("1. Print vehicles information");
         System.out.println("2. Print clients information");
         System.out.println("3. Modify an existing Vehicle");
-        System.out.println("4. Modify an existing Cliuent");
+        System.out.println("4. Modify an existing Client");
         System.out.println("5. Create a new vehicle");
         System.out.println("6. Create new client");
         System.out.println("7. Create report file");
-        System.out.println("8. End the program");
+        System.out.println("8. Print workers information");
+        System.out.println("9. End the program");
+        System.out.print("Select an option: ");
     }
     
-    public static ArrayList<Client> readClient(String filePath){
-        
-        ArrayList <Client> client = new ArrayList<>();
-        
-        String line="";
-        String name="";
-        String lastName1="";
-        String lastName2="";
-        int age=0;
-        String dni="";
-        String phone="";
-        boolean newClient=false;
-        int clientId=0;
-        
-        
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            reader.readLine();
+    public static void handleMenu(ArrayList<Vehicle> vehicles, ArrayList<Person> people, String dataFolder) {
+        int option;
+        do {
+            printMenu();
+            option = readIntInput();
             
-            while((line=reader.readLine())!=null){
-                
-                String[] parts = line.split(",");
-                
-                try{
-                    if(parts.length>=8){
-                        name=parts[0].trim();
-                        lastName1=parts[1].trim();
-                        lastName2=parts[2].trim();
-                        age = Integer.parseInt(parts[3].trim());
-                        dni=parts[4].trim();
-                        phone=parts[5].trim();
-                        newClient=Boolean.parseBoolean(parts[6].trim());
-                        clientId=Integer.parseInt(parts[7].trim());
-                        
-                        client.add(new Client(name, lastName1, lastName2, age, dni, phone, newClient, clientId));
-                    }else{
-                        System.out.println("Imcomplete data to create the object");
-                    }
-                }catch(Exception e){
-                    System.out.println("Error creating the object: "+e.getMessage());
+            switch (option) {
+                case 1:
+                    printVehicles(vehicles);
+                    break;
+                case 2:
+                    printClients(people);
+                    break;
+                case 3:
+                    modifyVehicle(vehicles);
+                    break;
+                case 4:
+                    modifyClient(people);
+                    break;
+                case 5:
+                    createVehicle(vehicles);
+                    break;
+                case 6:
+                    createClient(people);
+                    break;
+                case 7:
+                    createReport("dealership_report.txt", vehicles, people);
+                    break;
+                case 8:
+                    printWorkers(people);
+                    break;
+                case 9:
+                    System.out.println("Thank you for using the system. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        } while (option != 9);
+    }
+    
+    private static void printVehicles(ArrayList<Vehicle> vehicles) {
+        if (vehicles.isEmpty()) {
+            System.out.println("No vehicles available.");
+            return;
+        }
+        System.out.println("\n=== VEHICLES (" + vehicles.size() + " total) ===");
+        for (int i = 0; i < vehicles.size(); i++) {
+            Vehicle vehicle = vehicles.get(i);
+            System.out.println("Vehicle #" + (i + 1) + " - " + vehicle.getClass().getSimpleName() + ":");
+            System.out.println(vehicle.toString());
+            
+            // Mostrar métodos específicos
+            vehicle.showPrice();
+            vehicle.showState();
+            
+            System.out.println("-------------------");
+        }
+    }
+    
+    private static void printClients(ArrayList<Person> people) {
+        ArrayList<Client> clients = new ArrayList<>();
+        for (Person person : people) {
+            if (person instanceof Client) {
+                clients.add((Client) person);
+            }
+        }
+        
+        if (clients.isEmpty()) {
+            System.out.println("No clients available.");
+            return;
+        }
+        
+        System.out.println("\n=== CLIENTS (" + clients.size() + " total) ===");
+        for (int i = 0; i < clients.size(); i++) {
+            Client client = clients.get(i);
+            System.out.println("Client #" + (i + 1) + ":");
+            System.out.println(client.toString());
+            client.thankYouMessage();
+            System.out.println("-------------------");
+        }
+    }
+    
+    private static void printWorkers(ArrayList<Person> people) {
+        ArrayList<Seller> sellers = new ArrayList<>();
+        ArrayList<Mechanic> mechanics = new ArrayList<>();
+        
+        for (Person person : people) {
+            if (person instanceof Seller) {
+                sellers.add((Seller) person);
+            } else if (person instanceof Mechanic) {
+                mechanics.add((Mechanic) person);
+            }
+        }
+        
+        if (sellers.isEmpty() && mechanics.isEmpty()) {
+            System.out.println("No workers available.");
+            return;
+        }
+        
+        System.out.println("\n=== WORKERS ===");
+        
+        if (!sellers.isEmpty()) {
+            System.out.println("\nSELLERS (" + sellers.size() + " total):");
+            for (int i = 0; i < sellers.size(); i++) {
+                Seller seller = sellers.get(i);
+                System.out.println("Seller #" + (i + 1) + ":");
+                System.out.println(seller.toString());
+                System.out.println("-------------------");
+            }
+        }
+        
+        if (!mechanics.isEmpty()) {
+            System.out.println("\nMECHANICS (" + mechanics.size() + " total):");
+            for (int i = 0; i < mechanics.size(); i++) {
+                Mechanic mechanic = mechanics.get(i);
+                System.out.println("Mechanic #" + (i + 1) + ":");
+                System.out.println(mechanic.toString());
+                System.out.println("-------------------");
+            }
+        }
+    }
+    
+    private static void modifyVehicle(ArrayList<Vehicle> vehicles) {
+        if (vehicles.isEmpty()) {
+            System.out.println("No vehicles to modify.");
+            return;
+        }
+        
+        System.out.println("\nAvailable vehicles:");
+        for (int i = 0; i < vehicles.size(); i++) {
+            Vehicle vehicle = vehicles.get(i);
+            System.out.println((i + 1) + ". " + vehicle.getBrand() + " " + vehicle.getModel() + 
+                             " (" + vehicle.getClass().getSimpleName() + " - ID: " + vehicle.getVehicleId() + ")");
+        }
+        
+        System.out.print("Select vehicle to modify (1-" + vehicles.size() + "): ");
+        int choice = readIntInput();
+        
+        if (choice < 1 || choice > vehicles.size()) {
+            System.out.println("Invalid selection.");
+            return;
+        }
+        
+        Vehicle selectedVehicle = vehicles.get(choice - 1);
+        System.out.println("Selected vehicle: " + selectedVehicle);
+        
+        System.out.println("What would you like to modify?");
+        System.out.println("1. Price");
+        System.out.println("2. Color");
+        System.out.println("3. Cancel");
+        
+        int modifyChoice = readIntInput();
+        switch (modifyChoice) {
+            case 1:
+                System.out.print("Enter new price: ");
+                double newPrice = readDoubleInput();
+                selectedVehicle.setPrice(newPrice);
+                System.out.println("Price updated successfully.");
+                break;
+            case 2:
+                System.out.print("Enter new color: ");
+                String newColor = scanner.nextLine();
+                selectedVehicle.setColor(newColor);
+                System.out.println("Color updated successfully.");
+                break;
+            case 3:
+                System.out.println("Modification cancelled.");
+                break;
+            default:
+                System.out.println("Invalid option.");
+        }
+    }
+    
+    private static void modifyClient(ArrayList<Person> people) {
+        ArrayList<Client> clients = new ArrayList<>();
+        for (Person person : people) {
+            if (person instanceof Client) {
+                clients.add((Client) person);
+            }
+        }
+        
+        if (clients.isEmpty()) {
+            System.out.println("No clients to modify.");
+            return;
+        }
+        
+        System.out.println("\nAvailable clients:");
+        for (int i = 0; i < clients.size(); i++) {
+            Client client = clients.get(i);
+            System.out.println((i + 1) + ". " + client.getName() + " " + client.getLastName1() + " (ID: " + client.getClientId() + ")");
+        }
+        
+        System.out.print("Select client to modify (1-" + clients.size() + "): ");
+        int choice = readIntInput();
+        
+        if (choice < 1 || choice > clients.size()) {
+            System.out.println("Invalid selection.");
+            return;
+        }
+        
+        Client selectedClient = clients.get(choice - 1);
+        System.out.println("Selected client: " + selectedClient);
+        
+        System.out.println("Client modification feature - basic version");
+        System.out.println("Modification features coming soon...");
+    }
+    
+    private static void createVehicle(ArrayList<Vehicle> vehicles) {
+        System.out.println("\n=== CREATE NEW VEHICLE ===");
+        System.out.println("Vehicle creation feature - basic version");
+        System.out.println("This feature would allow creating new vehicles interactively.");
+        System.out.println("Implementation details would depend on the specific vehicle type.");
+    }
+    
+    private static void createClient(ArrayList<Person> people) {
+        System.out.println("\n=== CREATE NEW CLIENT ===");
+        System.out.println("Client creation feature - basic version");
+        
+        try {
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            
+            System.out.print("Enter first last name: ");
+            String lastName1 = scanner.nextLine();
+            
+            System.out.print("Enter second last name: ");
+            String lastName2 = scanner.nextLine();
+            
+            System.out.print("Enter age: ");
+            int age = readIntInput();
+            
+            System.out.print("Enter DNI: ");
+            String dni = scanner.nextLine();
+            
+            System.out.print("Enter phone: ");
+            String phone = scanner.nextLine();
+            
+            System.out.print("Is new client? (true/false): ");
+            boolean newClient = Boolean.parseBoolean(scanner.nextLine());
+            
+            // Generar un ID único
+            int clientId = generateUniqueClientId(people);
+            
+            Client newClientObj = new Client(name, lastName1, lastName2, age, dni, phone, newClient, clientId);
+            people.add(newClientObj);
+            
+            System.out.println("Client created successfully with ID: " + clientId);
+            
+        } catch (Exception e) {
+            System.out.println("Error creating client: " + e.getMessage());
+        }
+    }
+    
+    private static int generateUniqueClientId(ArrayList<Person> people) {
+        int maxId = 0;
+        for (Person person : people) {
+            if (person instanceof Client) {
+                Client client = (Client) person;
+                if (client.getClientId() > maxId) {
+                    maxId = client.getClientId();
                 }
             }
-            reader.close();
-        }catch(IOException e){
-            System.out.println("Error reading file: "+e.getMessage());
         }
-        return client;
+        return maxId + 1;
     }
     
-    public static ArrayList<Vehicle> readVehicle(String filePath, ArrayList<Client>client){
-        
-        ArrayList <Vehicle> vehicle= new ArrayList<>();
-        
-        String line="";
-        String brand="";
-        String model="";
-        int year=0;
-        double price=0.0;
-        String color="";
-        double weight=0.0;
-        boolean used = false;
-        int vehicleId = 0; 
-        int clientId=0;
-        Vehicle tempV;
-        
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            reader.readLine();
-            
-            while((line=reader.readLine())!=null){
-                
-                String[] parts = line.split(",");
-                
-                try{
-                    if(parts.length>=9){
-                        brand = parts[0].trim();
-                        model=parts[1].trim();
-                        year = Integer.parseInt(parts[2].trim());
-                        price = Double.parseDouble(parts[3].trim());
-                        color = parts[4].trim();
-                        weight = Double.parseDouble(parts[5].trim());
-                        used = Boolean.parseBoolean(parts[6].trim());
-                        vehicleId = Integer.parseInt(parts[7].trim());
-                        clientId = Integer.parseInt(parts[8].trim());
-                        
-                        tempV = new Vehicle(brand, model, year, price, color, weight, used, vehicleId);
-                        vehicle.add(tempV);
-                        
-                        for(Client c; client){
-                            if(clientId.equals(c.getClientId())){
-                                c.addVehicle(tempV);
-                            }
-                        }
-                        
-                    }else{
-                        System.out.println("No hay suficientes datos para crear el objeto");
-                    }
-                }catch(Exception e){
-                    System.out.println("Error creating the object: "+e.getMessage());
-                }  
-            }
-            reader.close();
-        }catch (IOException e){
-            System.out.println("Error reading file: "+e.getMessage());
-        }
-        return vehicle;
+    public static void createReport(String filePath, ArrayList<Vehicle> vehicles, ArrayList<Person> people) {
+        UtilityFileReader.createReport(filePath, vehicles, people);
     }
     
-    public static void createReport(String filePath, ArrayList<Vehicle> vehicle, ArrayList<Client>client){
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))){
-            
-            writer.write("VEHICLE INFORMATIONS\n");
-            writer.newLine();
-            
-            //Writing vehicle information
-            String line="";
-            for(Vehicle v: vehicle){
-                line=v.toString();
-                writer.write(line);
-                writer.newLine();
+    private static int readIntInput() {
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number: ");
             }
-            
-            writer.write("\nCLIENT INFORMATION\n");
-            writer.newLine();
-            
-            //Writing client information
-            line="";
-            for(Client c: client){
-                line=c.toString();
-                writer.write(line);
-                writer.newLine();
-            }
-            
-            //Closing BufferedWriter
-            writer.close();
-            System.out.println("The file was created: "+ filePath);
-            
-        }catch(IOException e){
-            System.out.println("Error: File could not be created"+e.getMessage());
         }
-    }*/
+    }
+    
+    private static double readDoubleInput() {
+        while (true) {
+            try {
+                return Double.parseDouble(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number: ");
+            }
+        }
+    }
 }

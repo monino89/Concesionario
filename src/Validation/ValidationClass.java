@@ -38,9 +38,9 @@ public final class ValidationClass {
         }
     }
     
-    public static void validatePhone(String phone){
-        if( phone == null || (phone.length()==10)==false){
-            throw new IllegalArgumentException("The phone number is not valid.");
+    public static void validatePhone(String phone) {
+        if (phone == null || !phone.matches("\\d{10}")) {
+            throw new IllegalArgumentException("The phone number must be exactly 10 digits.");
         }
     }
     
@@ -215,15 +215,15 @@ public final class ValidationClass {
     
     //      VALIDACION CLASE_WORKER
     
-    public static void ValidateId(String id){
-        if(id.isBlank()||id.isEmpty()||id.matches("[0-9]+")){
-            throw new IllegalArgumentException("The Id has invalid characters. ");
+    public static void ValidateId(String id) {
+        if (id == null || id.trim().isEmpty() || !id.matches("[a-zA-Z0-9]+")) {
+            throw new IllegalArgumentException("The ID has invalid characters.");
         }
     }
     
-    public static void ValidateEmail(String email){
-        if(email.isBlank()||email.isEmpty()||email.matches("^[_a-z 0-9-]+(\\.[_a-z 0-9-]+)*@[a-z 0-9-]+(\\.[a-z 0-9-]+)*(\\.[a-z]{2,})$")){
-            throw new IllegalArgumentException("The email has invalid characters. ");
+    public static void ValidateEmail(String email) {
+        if (email == null || email.trim().isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")){
+            throw new IllegalArgumentException("The email has invalid format.");
         }
     }
     

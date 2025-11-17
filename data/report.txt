@@ -1,0 +1,162 @@
+	Vehicle information
+
+Id: 1
+Brand: toyota
+Model: modelosi
+Year: 1998
+Price: 150000.0
+Color: blue
+Weight: 300.0
+The vehicle is used
+Cylinder Capacity: 20.0
+Engine Type: vers
+Brake Type: disk
+Range in kilometers: 50.0
+Tank Capacity: 500.0
+
+Id: 2
+Brand: Yamaha
+Model: modelono
+Year: 2008
+Price: 40000.0
+Color: yellow
+Weight: 400.0
+The vehicle is brand new
+Cylinder Capacity: 5632.0
+Engine Type: v1
+Brake Type: brek1
+Chassis Material: aluminum
+Time from 0 to 100: 2.0
+
+Id: 3
+Brand: marcadual
+Model: modelodual
+Year: 9999
+Price: 3214.0
+Color: colordual
+Weight: 6685.0
+The vehicle is used
+Cylinder Capacity: 653.0
+Engine Type: enginedual
+Brake Type: brakedual
+Seat position: 6854.0
+Tire type: tyredual
+
+Id: 4
+Brand: marcasedan
+Model: modelosedan
+Year: 1945
+Price: 5643.0
+Color: colorsedan
+Weight: 5321.0
+The vehicle is brand new
+Number of doors: 4
+Passenger capacity: 5
+Fuel type: fuelsedan
+Power: 56213.0
+Type sedan: typesedan
+Trunk capacity: 532.3241
+
+Id: 5
+Brand: marcacarsport
+Model: modelocarsport
+Year: 1900
+Price: 534126.0
+Color: colorcarsport
+Weight: 213656.0
+The vehicle is used
+Number of doors: 4
+Passenger capacity: 5
+Fuel type: fuelcarsport
+Power: 3216548.0
+Acceleration 0 to 100: 3.0
+Material: leather
+
+Id: 6
+Brand: marcapickup
+Model: modelopickup
+Year: 1902
+Price: 321465.0
+Color: colorpickup
+Weight: 5431.0
+The vehicle is brand new
+Number of doors: 6
+Passenger capacity: 8
+Fuel type: fuelpickup
+Power: 786532.0
+Load capacity: 45684.0
+Plate size: 65184.0
+Traction: tractionpickup
+
+Id: 7
+Brand: brandhyper
+Model: modelhyper
+Year: 8778
+Price: 3541.0
+Color: colorhyper
+Weight: 66531.0
+The vehicle is used
+Cylinder Capacity: 351638.0
+Engine Type: enginehyper
+Brake Type: brakehyper
+Chassis Material: chasishyper
+Time from 0 to 100: 3.0
+Max speed: 564.0
+DownForce: 87654
+
+Id: 8
+Brand: marcacarsport
+Model: modelocarsport
+Year: 1901
+Price: 534126.0
+Color: colorcarsport
+Weight: 213656.0
+The vehicle is brand new
+Number of doors: 4
+Passenger capacity: 5
+Fuel type: fuelcarsport
+Power: 3216548.0
+Acceleration 0 to 100: 3.0
+Material: leather
+Hybrid propulsion: propulsionhypercar
+DownForce: 8
+	Personal information
+
+Client name: david Santiago pinzon diaz
+Age: 16
+Dni: 1234567890
+Phone number: 1234567899
+New client.
+Client id: 1
+	Current shopping list: 
+
+Id: 4
+Brand: marcasedan
+Model: modelosedan
+Year: 1945
+Price: 5643.0
+Color: colorsedan
+Weight: 5321.0
+The vehicle is brand new
+Number of doors: 4
+Passenger capacity: 5
+Fuel type: fuelsedan
+Power: 56213.0
+Type sedan: typesedan
+Trunk capacity: 532.3241
+
+Id: 7
+Brand: brandhyper
+Model: modelhyper
+Year: 8778
+Price: 3541.0
+Color: colorhyper
+Weight: 66531.0
+The vehicle is used
+Cylinder Capacity: 351638.0
+Engine Type: enginehyper
+Brake Type: brakehyper
+Chassis Material: chasishyper
+Time from 0 to 100: 3.0
+Max speed: 564.0
+DownForce: 87654
