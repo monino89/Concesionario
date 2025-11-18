@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class UtilityFileReader {
     
-    // Touring - Versión limpia
+    // Touring
     public static ArrayList<Vehicle> readTouring(String filePath) {
         ArrayList<Vehicle> touring = new ArrayList<>();
         String line = "";
@@ -55,12 +55,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Touring: " + e.getMessage());
+            System.out.println("Error reading Touring file: " + e.getMessage());
         }
         return touring;
     }
     
-    // Sport - Versión limpia
+    // Sport
     public static ArrayList<Vehicle> readSport(String filePath) {
         ArrayList<Vehicle> sports = new ArrayList<>();
         String line = "";
@@ -93,12 +93,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Sport: " + e.getMessage());
+            System.out.println("Error reading sport file: " + e.getMessage());
         }
         return sports;
     }
     
-    // DualSport - Versión limpia
+    // DualSport
     public static ArrayList<Vehicle> readDualSport(String filePath) {
         ArrayList<Vehicle> dualSports = new ArrayList<>();
         String line = "";
@@ -131,12 +131,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo DualSport: " + e.getMessage());
+            System.out.println("Error reading Dualsport file: " + e.getMessage());
         }
         return dualSports;
     }
     
-    // Sedan - Versión limpia
+    // Sedan
     public static ArrayList<Vehicle> readSedan(String filePath) {
         ArrayList<Vehicle> sedans = new ArrayList<>();
         String line = "";
@@ -170,12 +170,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Sedan: " + e.getMessage());
+            System.out.println("Error reading Sedan file: " + e.getMessage());
         }
         return sedans;
     }
     
-    // CarSport - Versión limpia
+    // CarSport
     public static ArrayList<Vehicle> readCarSport(String filePath) {
         ArrayList<Vehicle> carSports = new ArrayList<>();
         String line = "";
@@ -209,12 +209,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo CarSport: " + e.getMessage());
+            System.out.println("Error reading CarSport file: " + e.getMessage());
         }
         return carSports;
     }
     
-    // Pickup - Versión limpia
+    // Pickup
     public static ArrayList<Vehicle> readPickup(String filePath) {
         ArrayList<Vehicle> pickups = new ArrayList<>();
         String line = "";
@@ -249,12 +249,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Pickup: " + e.getMessage());
+            System.out.println("Error reading Pickup file: " + e.getMessage());
         }
         return pickups;
     }
     
-    // HyperMotorbike - Versión limpia
+    // HyperMotorbike
     public static ArrayList<Vehicle> readHyperMotorbike(String filePath) {
         ArrayList<Vehicle> hyperMotorbikes = new ArrayList<>();
         String line = "";
@@ -290,12 +290,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo HyperMotorbike: " + e.getMessage());
+            System.out.println("Error reading MotorBike file: " + e.getMessage());
         }
         return hyperMotorbikes;
     }
     
-    // HyperCar - Versión limpia
+    // HyperCar
     public static ArrayList<Vehicle> readHyperCar(String filePath) {
         ArrayList<Vehicle> hyperCars = new ArrayList<>();
         String line = "";
@@ -332,12 +332,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo HyperCar: " + e.getMessage());
+            System.out.println("Error reading HyperCar file: " + e.getMessage());
         }
         return hyperCars;
     }
     
-    // Client - Versión limpia
+    // Client
     public static ArrayList<Client> readClient(String filePath) {
         ArrayList<Client> clients = new ArrayList<>();
         String line = "";
@@ -363,12 +363,12 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Client: " + e.getMessage());
+            System.out.println("Error reading Client file: " + e.getMessage());
         }
         return clients;
     }
     
-    // Seller - Versión limpia
+    // Seller
     public static void readSeller(String filePath, ArrayList<Person> people) {
         String line = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -396,11 +396,11 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Seller: " + e.getMessage());
+            System.out.println("Error reading Sellers file: " + e.getMessage());
         }
     }
     
-    // Mechanic - Versión limpia
+    // Mechanic
     public static void readMechanic(String filePath, ArrayList<Person> people) {
         String line = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -428,11 +428,11 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Mechanic: " + e.getMessage());
+            System.out.println("Error reading Mechanics file: " + e.getMessage());
         }
     }
     
-    // Relations - Versión limpia
+    // Relations
     public static void createRelations(String filePath, ArrayList<Vehicle> vehicles, ArrayList<Person> people) {
         String line = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -464,11 +464,11 @@ public class UtilityFileReader {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error leyendo archivo Relations: " + e.getMessage());
+            System.out.println("Error reading Relations file: " + e.getMessage());
         }
     }
     
-    // Create Report - Versión limpia
+    // Create Report
     public static void createReport(String filePath, ArrayList<Vehicle> vehicles, ArrayList<Person> people) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("=== CAR DEALERSHIP REPORT ===\n");
@@ -502,14 +502,14 @@ public class UtilityFileReader {
                 }
             }
             
-            System.out.println("Reporte creado exitosamente: " + filePath);
+            System.out.println("Report created successfully: " + filePath);
             
         } catch (IOException e) {
-            System.out.println("Error creando reporte: " + e.getMessage());
+            System.out.println("Error creating the report: " + e.getMessage());
         }
     }
     
-    // Métodos de carga masiva - Versión limpia
+    // Métodos de carga masiva
     public static ArrayList<Vehicle> loadAllVehicles(String dataFolder) {
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
         
