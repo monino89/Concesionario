@@ -14,32 +14,23 @@ public class Concesionario {
         
         String projectPath = System.getProperty("user.dir");
         String dataFolder = projectPath + File.separator + "data";
-        
-        // Verificar carpeta data
-        File folder = new File(dataFolder);
-        if (!folder.exists()) {
-            System.out.println("Error: La carpeta 'data' no existe en: " + dataFolder);
-            System.out.println("Por favor crea una carpeta 'data' con los archivos necesarios.");
-            return;
-        }
-        
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         ArrayList<Person> people = new ArrayList<>();
         
         try {
-            System.out.println("Cargando datos del concesionario...");
+            System.out.println("Loading data of the dealership...");
             
             // Cargar todos los datos
             vehicles = UtilityFileReader.loadAllVehicles(dataFolder);
             people = UtilityFileReader.loadAllPeople(dataFolder);
             UtilityFileReader.createRelations(dataFolder + "/relations.txt", vehicles, people);
             
-            System.out.println("\n=== SISTEMA INICIALIZADO ===");
-            System.out.println("Vehículos cargados: " + vehicles.size());
-            System.out.println("Personas registradas: " + people.size());
+            System.out.println("\n=== SYSTEM INITIALIZED ===");
+            System.out.println("Vehicles on the system: " + vehicles.size());
+            System.out.println("People registered: " + people.size());
             
         } catch (Exception e) {
-            System.out.println("Error inicializando el sistema: " + e.getMessage());
+            System.out.println("System initialization failed: " + e.getMessage());
             return;
         }
         
